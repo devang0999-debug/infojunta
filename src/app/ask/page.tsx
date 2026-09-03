@@ -48,7 +48,7 @@ export default async function AskPage({
       <div className="mt-10 flex flex-wrap gap-2">
         <Link
           href="/ask"
-          className={`pop-btn !py-1.5 !text-xs ${active ? "!bg-white" : ""}`}
+          className={`pop-btn py-1.5! text-xs! ${active ? "bg-surface!" : ""}`}
         >
           All
         </Link>
@@ -56,7 +56,7 @@ export default async function AskPage({
           <Link
             key={c}
             href={`/ask?category=${c}`}
-            className={`pop-btn !py-1.5 !text-xs ${active === c ? "" : "!bg-white"}`}
+            className={`pop-btn py-1.5! text-xs! ${active === c ? "" : "bg-surface!"}`}
           >
             {CATEGORY_META[c].label}
           </Link>
@@ -65,13 +65,13 @@ export default async function AskPage({
 
       <ul className="mt-6 space-y-3">
         {shown.map((q) => (
-          <li key={q.id} className="pop-card bg-white p-5">
+          <li key={q.id} className="pop-card p-5">
             <div className="flex flex-wrap items-center gap-2">
               <span className="sticker" style={{ background: "var(--color-paper-2)" }}>
                 {CATEGORY_META[q.category].label}
               </span>
               {q.scope === "municipal" && (
-                <span className="sticker !border-dashed">seeded</span>
+                <span className="sticker border-dashed!">seeded</span>
               )}
             </div>
             <h3 className="mt-2 font-[family-name:var(--font-heading)] text-lg">

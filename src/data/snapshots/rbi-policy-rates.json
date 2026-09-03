@@ -4,7 +4,7 @@
   "cadence": "realtime",
   "plainSummary": "The RBI's repo rate stands at 5.25%, with CRR at 3%. These set the cost of money across the economy — your loan EMIs, deposit returns and how much cash banks must keep aside all move with them.",
   "asOfDate": "2026-09-01T18:30:00.000Z",
-  "capturedAt": "2026-09-03T04:40:37.596Z",
+  "capturedAt": "2026-09-03T04:50:54.140Z",
   "metrics": [
     {
       "key": "repo",
@@ -66,7 +66,7 @@
   "provenance": {
     "sourceName": "Reserve Bank of India (Current Rates)",
     "sourceUrl": "https://www.rbi.org.in/",
-    "fetchedAt": "2026-09-03T04:40:37.596Z",
+    "fetchedAt": "2026-09-03T04:50:54.140Z",
     "note": "Scraped from the RBI homepage rates box; FX reference from FBIL."
   }
 }

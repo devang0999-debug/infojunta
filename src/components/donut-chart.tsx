@@ -46,8 +46,8 @@ export function DonutChart({
         className="shrink-0"
       >
         {/* outer + inner ink outlines */}
-        <circle cx={cx} cy={cy} r={r + stroke / 2} fill="none" stroke="#14100c" strokeWidth={3} />
-        <circle cx={cx} cy={cy} r={r - stroke / 2} fill="none" stroke="#14100c" strokeWidth={3} />
+        <circle cx={cx} cy={cy} r={r + stroke / 2} fill="none" stroke="var(--color-ink)" strokeWidth={3} />
+        <circle cx={cx} cy={cy} r={r - stroke / 2} fill="none" stroke="var(--color-ink)" strokeWidth={3} />
         <g transform={`rotate(-90 ${cx} ${cy})`}>
           {arcs.map((a, i) => (
             <circle
@@ -72,7 +72,7 @@ export function DonutChart({
                 textAnchor="middle"
                 className="font-[family-name:var(--font-heading)]"
                 fontSize="22"
-                fill="#14100c"
+                fill="var(--color-ink)"
               >
                 {centerTop}
               </text>
@@ -83,7 +83,7 @@ export function DonutChart({
                 y={cy + 18}
                 textAnchor="middle"
                 fontSize="11"
-                fill="#4b433a"
+                fill="var(--color-ink-soft)"
               >
                 {centerBottom}
               </text>

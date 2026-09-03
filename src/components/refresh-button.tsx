@@ -34,7 +34,7 @@ export function RefreshButton({ moduleKey }: { moduleKey: string }) {
           : "Pull latest";
 
   return (
-    <button onClick={refresh} disabled={state === "loading"} className="pop-btn !bg-white">
+    <button onClick={refresh} disabled={state === "loading"} className="pop-btn bg-surface!">
       {state !== "loading" && <span aria-hidden>↻</span>}
       {label}
     </button>

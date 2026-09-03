@@ -14,7 +14,7 @@ export function Provenance({
   moduleKey?: string;
 }) {
   return (
-    <div className="pop-card-sm bg-white p-4 text-sm">
+    <div className="pop-card-sm p-4 text-sm">
       <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
         <span className="font-[family-name:var(--font-heading)] text-xs uppercase tracking-wide text-ink-soft">
           Source

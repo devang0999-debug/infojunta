@@ -51,7 +51,7 @@ export default async function BudgetPage() {
       </div>
 
       <div className="mt-10 grid gap-6 lg:grid-cols-2">
-        <section className="pop-card bg-white p-6">
+        <section className="pop-card p-6">
           <h2 className="font-[family-name:var(--font-heading)] text-xl">
             <span className="pop-underline">Where the rupee comes from</span>
           </h2>
@@ -61,7 +61,7 @@ export default async function BudgetPage() {
           <BreakdownBars items={comesFrom} valueSuffix="p" />
         </section>
 
-        <section className="pop-card bg-white p-6">
+        <section className="pop-card p-6">
           <h2 className="font-[family-name:var(--font-heading)] text-xl">
             <span className="pop-underline">Where the rupee goes</span>
           </h2>

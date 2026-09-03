@@ -2,67 +2,101 @@
 
 /*
   infojunta — "comic pop v2" design system.
-  Bold ink outlines, hard offset shadows (no blur), halftone dots,
-  punchy pop primaries on warm paper. Transparency is the product.
+  Editorial serif headlines, heavy grotesque wordmark, bold ink outlines,
+  hard offset shadows (no blur), halftone dots, punchy pop primaries.
+  Theme-aware: light "comic pop" + a dark mode. Pop colours hold in both.
 */
 
 @theme {
-  /* Surfaces */
-  --color-paper: #fef8e7; /* warm comic paper */
-  --color-paper-2: #fdeecb;
-  --color-ink: #14100c; /* near-black outline / text */
-  --color-ink-soft: #4b433a;
+  /* Themeable surfaces (flip with theme via the vars below) */
+  --color-paper: var(--page);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink); /* primary text + outlines + hard shadows */
+  --color-ink-soft: var(--muted);
 
-  /* Pop primaries */
-  --color-pop-red: #ff3b30;
+  /* Fixed dark ink for text sitting on bright pop surfaces */
+  --color-on-pop: #141210;
+
+  /* Pop primaries (constant across themes) */
   --color-pop-yellow: #ffd400;
+  --color-pop-pink: #ff2e9a;
+  --color-pop-teal: #17d0c4;
+  --color-pop-purple: #7c5cff;
   --color-pop-blue: #2f6fed;
-  --color-pop-pink: #ff5da2;
-  --color-pop-teal: #16bdca;
-  --color-pop-green: #2fb457;
-  --color-pop-purple: #8b5cf6;
+  --color-pop-green: #22b34b;
+  --color-pop-red: #ff3b30;
 
   /* Semantic (data movement) */
-  --color-up: #2fb457;
-  --color-down: #ff3b30;
-  --color-flat: #4b433a;
+  --color-up: #16a34a;
+  --color-down: #ff2e9a;
+  --color-flat: #8a8175;
 
   /* Fonts (wired via next/font in layout.tsx) */
-  --font-display: var(--font-display), "Bangers", system-ui, sans-serif;
+  --font-display: var(--font-display), "Playfair Display", Georgia, serif;
   --font-heading: var(--font-heading), "Archivo Black", system-ui, sans-serif;
   --font-body: var(--font-body), "Space Grotesk", system-ui, sans-serif;
   --font-mono: var(--font-mono), "Space Mono", ui-monospace, monospace;
 }
 
+/* ---- Theme tokens --------------------------------------------------- */
 :root {
+  --page: #f4eede;
+  --surface: #fffdf7;
+  --surface-2: #f6e8ca;
+  --ink: #141210;
+  --muted: #5c554a;
+
   --shadow-pop: 6px 6px 0 var(--color-ink);
   --shadow-pop-sm: 3px 3px 0 var(--color-ink);
   --shadow-pop-lg: 10px 10px 0 var(--color-ink);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page: #161320;
+    --surface: #241e33;
+    --surface-2: #2f2745;
+    --ink: #f6f1e7;
+    --muted: #b3aabd;
+  }
+}
+
+:root[data-theme="dark"] {
+  --page: #161320;
+  --surface: #241e33;
+  --surface-2: #2f2745;
+  --ink: #f6f1e7;
+  --muted: #b3aabd;
+}
+
+* {
+  border-color: var(--color-ink);
 }
 
 body {
   font-family: var(--font-body);
   background-color: var(--color-paper);
   color: var(--color-ink);
-  /* Ben-Day halftone dot wash on the paper */
+  /* Ben-Day halftone dot wash */
   background-image: radial-gradient(
-    var(--color-ink) 0.7px,
+    color-mix(in srgb, var(--color-ink) 55%, transparent) 0.7px,
     transparent 0.7px
   );
-  background-size: 14px 14px;
+  background-size: 15px 15px;
   background-attachment: fixed;
 }
 
 /* ---- Comic components ------------------------------------------------ */
 
 .pop-card {
-  background: #fff;
+  background: var(--color-surface);
   border: 3px solid var(--color-ink);
-  border-radius: 14px;
+  border-radius: 16px;
   box-shadow: var(--shadow-pop);
 }
-
 .pop-card-sm {
+  background: var(--color-surface);
   border: 3px solid var(--color-ink);
   border-radius: 12px;
   box-shadow: var(--shadow-pop-sm);
@@ -71,16 +105,17 @@ body {
 .pop-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   font-family: var(--font-heading);
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
   padding: 0.7rem 1.15rem;
   border: 3px solid var(--color-ink);
   border-radius: 12px;
   box-shadow: var(--shadow-pop-sm);
   background: var(--color-pop-yellow);
-  color: var(--color-ink);
+  color: var(--color-on-pop);
   transition: transform 0.08s ease, box-shadow 0.08s ease;
   cursor: pointer;
 }
@@ -92,27 +127,54 @@ body {
   transform: translate(2px, 2px);
   box-shadow: 1px 1px 0 var(--color-ink);
 }
+.pop-btn-pink {
+  background: var(--color-pop-pink);
+  color: #fff;
+}
 
-/* Rotated sticker badge */
+/* Sticker badge (defaults to a surface chip; add a bg utility to colour it) */
 .sticker {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
   font-family: var(--font-heading);
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
+  font-size: 0.7rem;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
-  padding: 0.28rem 0.6rem;
+  padding: 0.3rem 0.65rem;
   border: 2.5px solid var(--color-ink);
   border-radius: 999px;
   box-shadow: var(--shadow-pop-sm);
-  background: #fff;
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+/* When placed on a bright pop background, keep text dark */
+.on-pop {
+  color: var(--color-on-pop);
 }
 
-/* Comic "burst" / starburst for hero accents */
+/* Speech bubble */
+.speech {
+  position: relative;
+  background: var(--color-surface);
+  border: 3px solid var(--color-ink);
+  border-radius: 16px;
+  box-shadow: var(--shadow-pop-sm);
+}
+.speech::after {
+  content: "";
+  position: absolute;
+  left: 30px;
+  bottom: -17px;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 18px solid transparent;
+  border-top: 17px solid var(--color-ink);
+}
+
+/* Comic starburst */
 .burst {
-  background: var(--color-pop-red);
-  color: #fff;
   clip-path: polygon(
     50% 0%, 61% 12%, 76% 6%, 74% 23%, 90% 24%, 80% 37%, 98% 45%,
     83% 55%, 95% 68%, 78% 68%, 82% 85%, 66% 77%, 60% 96%, 50% 82%,
@@ -121,45 +183,49 @@ body {
   );
 }
 
-/* Halftone dot overlay helper (apply over a colored surface) */
+/* Halftone dot overlay helper */
 .halftone {
   background-image: radial-gradient(
-    rgba(0, 0, 0, 0.22) 1.1px,
+    rgba(0, 0, 0, 0.2) 1.1px,
     transparent 1.1px
   );
   background-size: 8px 8px;
 }
 
-/* Speech bubble */
-.speech {
-  position: relative;
-  background: #fff;
-  border: 3px solid var(--color-ink);
-  border-radius: 16px;
-  box-shadow: var(--shadow-pop-sm);
-}
-.speech::after {
-  content: "";
-  position: absolute;
-  left: 28px;
-  bottom: -18px;
-  width: 0;
-  height: 0;
-  border-left: 12px solid transparent;
-  border-right: 18px solid transparent;
-  border-top: 18px solid var(--color-ink);
-}
-
-/* Section label with an underline swipe */
+/* Yellow marker underline swipe */
 .pop-underline {
-  text-decoration: underline;
-  text-decoration-color: var(--color-pop-yellow);
-  text-decoration-thickness: 8px;
-  text-underline-offset: 2px;
-  text-decoration-skip-ink: none;
+  background-image: linear-gradient(var(--color-pop-yellow), var(--color-pop-yellow));
+  background-repeat: no-repeat;
+  background-position: 0 88%;
+  background-size: 100% 0.42em;
+  padding: 0 0.05em;
 }
 
-/* Focus ring in comic style */
+/* Pink outline text (hero accent, like the reference) */
+.ink-outline {
+  color: var(--color-pop-pink);
+  text-shadow:
+    3px 3px 0 var(--color-ink),
+    -1px -1px 0 var(--color-ink),
+    1px -1px 0 var(--color-ink),
+    -1px 1px 0 var(--color-ink);
+}
+
+/* Scrolling ticker */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.ticker-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: ticker 32s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; }
+}
+
+/* Focus ring */
 :where(a, button, input, [tabindex]):focus-visible {
   outline: 3px solid var(--color-pop-blue);
   outline-offset: 2px;

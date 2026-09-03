@@ -25,7 +25,7 @@ export function BreakdownBars({
                 {valueSuffix ?? (it.unit ? ` ${it.unit}` : "")}
               </span>
             </div>
-            <div className="h-6 w-full overflow-hidden rounded-md border-[2.5px] border-ink bg-white">
+            <div className="h-6 w-full overflow-hidden rounded-md border-[2.5px] border-ink bg-surface">
               <div
                 className="h-full halftone"
                 style={{ width: `${pct}%`, background: colorFor(it.colorKey) }}

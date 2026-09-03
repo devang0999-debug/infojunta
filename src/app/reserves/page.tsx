@@ -53,7 +53,7 @@ export default async function ReservesPage() {
           <h2 className="font-[family-name:var(--font-heading)] text-2xl">
             <span className="pop-underline">What&rsquo;s inside the reserves</span>
           </h2>
-          <div className="pop-card mt-5 bg-white p-6">
+          <div className="pop-card mt-5 p-6">
             <DonutChart
               items={snap.breakdown}
               centerTop={total ? `$${total.value}bn` : undefined}

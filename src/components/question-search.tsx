@@ -57,7 +57,7 @@ export function QuestionSearch({ autoFocus = false }: { autoFocus?: boolean }) {
           {results.map((r) => {
             const cat = CATEGORY_META[r.category];
             return (
-              <li key={r.id} className="pop-card-sm bg-white p-4">
+              <li key={r.id} className="pop-card-sm p-4">
                 <div className="flex flex-wrap items-center gap-2">
                   <span
                     className="sticker"
@@ -94,7 +94,7 @@ export function QuestionSearch({ autoFocus = false }: { autoFocus?: boolean }) {
             <button
               key={q}
               onClick={() => runExample(q)}
-              className="pop-btn !bg-white !py-1.5 !text-xs"
+              className="pop-btn bg-surface! py-1.5! text-xs!"
             >
               {q}
             </button>
