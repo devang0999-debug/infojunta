@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "crons": [
+    { "path": "/api/refresh/rbi-policy-rates", "schedule": "0 9 * * *" },
+    { "path": "/api/refresh/rbi-forex-reserves", "schedule": "30 12 * * 6" }
+  ]
+}

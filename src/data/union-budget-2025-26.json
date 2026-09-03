@@ -1,0 +1,37 @@
+{
+  "fiscalYear": "2025-26",
+  "label": "Union Budget 2025-26 (Budget Estimates)",
+  "presentedOn": "2025-02-01",
+  "totalExpenditureCr": 5065345,
+  "totalReceiptsCr": 5065345,
+  "capexCr": 1121090,
+  "effectiveCapexCr": 1546486,
+  "fiscalDeficitPctGdp": 4.4,
+  "revenueDeficitPctGdp": 1.5,
+  "note": "Figures are Budget Estimates (BE) for FY 2025-26. 'Comes from' and 'goes to' are in paise per rupee, as published in Budget at a Glance.",
+  "source": {
+    "name": "Ministry of Finance — Budget at a Glance 2025-26",
+    "url": "https://www.indiabudget.gov.in/"
+  },
+  "comesFrom": [
+    { "label": "Borrowings & other liabilities", "paise": 24, "colorKey": "pop-red" },
+    { "label": "Income tax", "paise": 22, "colorKey": "pop-blue" },
+    { "label": "GST & other taxes", "paise": 18, "colorKey": "pop-teal" },
+    { "label": "Corporation tax", "paise": 17, "colorKey": "pop-purple" },
+    { "label": "Non-tax receipts", "paise": 9, "colorKey": "pop-green" },
+    { "label": "Union excise duties", "paise": 5, "colorKey": "pop-yellow" },
+    { "label": "Customs", "paise": 4, "colorKey": "pop-pink" },
+    { "label": "Non-debt capital receipts", "paise": 1, "colorKey": "flat" }
+  ],
+  "goesTo": [
+    { "label": "States' share of taxes & duties", "paise": 22, "colorKey": "pop-blue" },
+    { "label": "Interest payments", "paise": 20, "colorKey": "pop-red" },
+    { "label": "Central sector schemes", "paise": 16, "colorKey": "pop-teal" },
+    { "label": "Finance Commission & other transfers", "paise": 8, "colorKey": "pop-purple" },
+    { "label": "Centrally sponsored schemes", "paise": 8, "colorKey": "pop-green" },
+    { "label": "Defence", "paise": 8, "colorKey": "pop-pink" },
+    { "label": "Subsidies", "paise": 6, "colorKey": "pop-yellow" },
+    { "label": "Pensions", "paise": 4, "colorKey": "pop-purple" },
+    { "label": "Other expenditure", "paise": 8, "colorKey": "flat" }
+  ]
+}

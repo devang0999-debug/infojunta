@@ -1,26 +1,166 @@
 @import "tailwindcss";
 
+/*
+  infojunta — "comic pop v2" design system.
+  Bold ink outlines, hard offset shadows (no blur), halftone dots,
+  punchy pop primaries on warm paper. Transparency is the product.
+*/
+
+@theme {
+  /* Surfaces */
+  --color-paper: #fef8e7; /* warm comic paper */
+  --color-paper-2: #fdeecb;
+  --color-ink: #14100c; /* near-black outline / text */
+  --color-ink-soft: #4b433a;
+
+  /* Pop primaries */
+  --color-pop-red: #ff3b30;
+  --color-pop-yellow: #ffd400;
+  --color-pop-blue: #2f6fed;
+  --color-pop-pink: #ff5da2;
+  --color-pop-teal: #16bdca;
+  --color-pop-green: #2fb457;
+  --color-pop-purple: #8b5cf6;
+
+  /* Semantic (data movement) */
+  --color-up: #2fb457;
+  --color-down: #ff3b30;
+  --color-flat: #4b433a;
+
+  /* Fonts (wired via next/font in layout.tsx) */
+  --font-display: var(--font-display), "Bangers", system-ui, sans-serif;
+  --font-heading: var(--font-heading), "Archivo Black", system-ui, sans-serif;
+  --font-body: var(--font-body), "Space Grotesk", system-ui, sans-serif;
+  --font-mono: var(--font-mono), "Space Mono", ui-monospace, monospace;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --shadow-pop: 6px 6px 0 var(--color-ink);
+  --shadow-pop-sm: 3px 3px 0 var(--color-ink);
+  --shadow-pop-lg: 10px 10px 0 var(--color-ink);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  /* Ben-Day halftone dot wash on the paper */
+  background-image: radial-gradient(
+    var(--color-ink) 0.7px,
+    transparent 0.7px
+  );
+  background-size: 14px 14px;
+  background-attachment: fixed;
+}
+
+/* ---- Comic components ------------------------------------------------ */
+
+.pop-card {
+  background: #fff;
+  border: 3px solid var(--color-ink);
+  border-radius: 14px;
+  box-shadow: var(--shadow-pop);
+}
+
+.pop-card-sm {
+  border: 3px solid var(--color-ink);
+  border-radius: 12px;
+  box-shadow: var(--shadow-pop-sm);
+}
+
+.pop-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  padding: 0.7rem 1.15rem;
+  border: 3px solid var(--color-ink);
+  border-radius: 12px;
+  box-shadow: var(--shadow-pop-sm);
+  background: var(--color-pop-yellow);
+  color: var(--color-ink);
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+  cursor: pointer;
+}
+.pop-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--color-ink);
+}
+.pop-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--color-ink);
+}
+
+/* Rotated sticker badge */
+.sticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.6rem;
+  border: 2.5px solid var(--color-ink);
+  border-radius: 999px;
+  box-shadow: var(--shadow-pop-sm);
+  background: #fff;
+}
+
+/* Comic "burst" / starburst for hero accents */
+.burst {
+  background: var(--color-pop-red);
+  color: #fff;
+  clip-path: polygon(
+    50% 0%, 61% 12%, 76% 6%, 74% 23%, 90% 24%, 80% 37%, 98% 45%,
+    83% 55%, 95% 68%, 78% 68%, 82% 85%, 66% 77%, 60% 96%, 50% 82%,
+    40% 96%, 34% 77%, 18% 85%, 22% 68%, 5% 68%, 17% 55%, 2% 45%,
+    20% 37%, 10% 24%, 26% 23%, 24% 6%, 39% 12%
+  );
+}
+
+/* Halftone dot overlay helper (apply over a colored surface) */
+.halftone {
+  background-image: radial-gradient(
+    rgba(0, 0, 0, 0.22) 1.1px,
+    transparent 1.1px
+  );
+  background-size: 8px 8px;
+}
+
+/* Speech bubble */
+.speech {
+  position: relative;
+  background: #fff;
+  border: 3px solid var(--color-ink);
+  border-radius: 16px;
+  box-shadow: var(--shadow-pop-sm);
+}
+.speech::after {
+  content: "";
+  position: absolute;
+  left: 28px;
+  bottom: -18px;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 18px solid transparent;
+  border-top: 18px solid var(--color-ink);
+}
+
+/* Section label with an underline swipe */
+.pop-underline {
+  text-decoration: underline;
+  text-decoration-color: var(--color-pop-yellow);
+  text-decoration-thickness: 8px;
+  text-underline-offset: 2px;
+  text-decoration-skip-ink: none;
+}
+
+/* Focus ring in comic style */
+:where(a, button, input, [tabindex]):focus-visible {
+  outline: 3px solid var(--color-pop-blue);
+  outline-offset: 2px;
 }

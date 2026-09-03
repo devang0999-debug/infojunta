@@ -1,0 +1,72 @@
+{
+  "moduleKey": "rbi-policy-rates",
+  "title": "RBI Policy Rates",
+  "cadence": "realtime",
+  "plainSummary": "The RBI's repo rate stands at 5.25%, with CRR at 3%. These set the cost of money across the economy — your loan EMIs, deposit returns and how much cash banks must keep aside all move with them.",
+  "asOfDate": "2026-09-01T18:30:00.000Z",
+  "capturedAt": "2026-09-03T04:40:37.596Z",
+  "metrics": [
+    {
+      "key": "repo",
+      "label": "Policy Repo Rate",
+      "value": 5.25,
+      "unit": "%",
+      "plain": "The rate at which the RBI lends to banks. Up = loans and EMIs get costlier."
+    },
+    {
+      "key": "reverse_repo",
+      "label": "Fixed Reverse Repo Rate",
+      "value": 3.35,
+      "unit": "%",
+      "plain": "The rate the RBI pays banks to park money with it, absorbing liquidity."
+    },
+    {
+      "key": "sdf",
+      "label": "Standing Deposit Facility Rate",
+      "value": 5,
+      "unit": "%",
+      "plain": "The floor rate at which banks park spare cash with the RBI (no collateral)."
+    },
+    {
+      "key": "msf",
+      "label": "Marginal Standing Facility Rate",
+      "value": 5.5,
+      "unit": "%",
+      "plain": "The emergency rate banks pay to borrow overnight from the RBI."
+    },
+    {
+      "key": "bank_rate",
+      "label": "Bank Rate",
+      "value": 5.5,
+      "unit": "%",
+      "plain": "The rate the RBI charges on longer-term lending to banks; a policy signal."
+    },
+    {
+      "key": "crr",
+      "label": "CRR",
+      "value": 3,
+      "unit": "%",
+      "plain": "Share of deposits banks must keep as cash with the RBI, earning nothing."
+    },
+    {
+      "key": "slr",
+      "label": "SLR",
+      "value": 18,
+      "unit": "%",
+      "plain": "Share of deposits banks must hold in safe assets like government bonds."
+    },
+    {
+      "key": "inr_usd",
+      "label": "INR / 1 USD",
+      "value": 94.9701,
+      "unit": "₹",
+      "plain": "How many rupees one US dollar buys right now (FBIL reference)."
+    }
+  ],
+  "provenance": {
+    "sourceName": "Reserve Bank of India (Current Rates)",
+    "sourceUrl": "https://www.rbi.org.in/",
+    "fetchedAt": "2026-09-03T04:40:37.596Z",
+    "note": "Scraped from the RBI homepage rates box; FX reference from FBIL."
+  }
+}

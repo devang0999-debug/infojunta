@@ -1,0 +1,155 @@
+{
+  "meta": {
+    "description": "Central repository of plain-language questions about Indian public data, mapped to a live breakdown. Central-government questions resolve to live data now; municipal questions are seeded and will be back-filled as we ingest public municipal portals.",
+    "updated": "2026-09-03"
+  },
+  "questions": [
+    {
+      "id": "repo-rate-now",
+      "q": "What is the current RBI repo rate?",
+      "category": "rates",
+      "scope": "central",
+      "tags": ["repo", "rbi", "interest", "emi", "monetary policy"],
+      "answer": "The RBI's policy repo rate is 5.25% (as at 2 Sep 2026). It's the rate at which the RBI lends to banks and sets the direction for your loan EMIs.",
+      "link": { "href": "/rates", "label": "See all policy rates" },
+      "source": { "name": "RBI", "url": "https://www.rbi.org.in/" }
+    },
+    {
+      "id": "emi-costlier",
+      "q": "Why are my loan EMIs going up or down?",
+      "category": "rates",
+      "scope": "central",
+      "tags": ["emi", "home loan", "repo", "interest"],
+      "answer": "Bank lending rates track the RBI repo rate. When the repo rate rises, floating-rate EMIs usually rise too; when it falls, they ease.",
+      "link": { "href": "/rates", "label": "Repo rate & what it means" }
+    },
+    {
+      "id": "crr-slr",
+      "q": "What is CRR and SLR?",
+      "category": "rates",
+      "scope": "central",
+      "tags": ["crr", "slr", "reserve ratio", "banks"],
+      "answer": "CRR (3%) is the share of deposits banks must park as cash with the RBI; SLR (18%) is the share they must hold in safe assets like government bonds.",
+      "link": { "href": "/rates", "label": "Reserve ratios" }
+    },
+    {
+      "id": "forex-total",
+      "q": "How much are India's forex reserves right now?",
+      "category": "reserves",
+      "scope": "central",
+      "tags": ["forex", "reserves", "dollars", "rbi", "rupee"],
+      "answer": "India's foreign exchange reserves are about US$729 billion (week ended 21 Aug 2026), most of it in foreign currency assets, plus gold, SDRs and the IMF position.",
+      "link": { "href": "/reserves", "label": "See the reserves breakdown" },
+      "source": { "name": "RBI Weekly Statistical Supplement", "url": "https://www.rbi.org.in/" }
+    },
+    {
+      "id": "forex-gold",
+      "q": "How much gold does the RBI hold in reserves?",
+      "category": "reserves",
+      "scope": "central",
+      "tags": ["gold", "reserves", "forex"],
+      "answer": "Gold makes up roughly US$114 billion of India's reserves — about 16% of the total.",
+      "link": { "href": "/reserves", "label": "Reserve composition" }
+    },
+    {
+      "id": "forex-why-matter",
+      "q": "Why do foreign exchange reserves matter?",
+      "category": "reserves",
+      "scope": "central",
+      "tags": ["forex", "imports", "rupee", "stability"],
+      "answer": "Reserves cushion the rupee against shocks and cover imports. A rising reserve pile generally signals a stronger external position.",
+      "link": { "href": "/reserves", "label": "Forex reserves" }
+    },
+    {
+      "id": "budget-total",
+      "q": "How much will the government spend this year?",
+      "category": "budget",
+      "scope": "central",
+      "tags": ["budget", "expenditure", "spending", "union budget"],
+      "answer": "The Union Budget 2025-26 plans total expenditure of about ₹50.7 lakh crore.",
+      "link": { "href": "/budget", "label": "Where the money goes" },
+      "source": { "name": "Budget at a Glance 2025-26", "url": "https://www.indiabudget.gov.in/" }
+    },
+    {
+      "id": "tax-rupee-goes",
+      "q": "Where does my tax rupee actually go?",
+      "category": "budget",
+      "scope": "central",
+      "tags": ["tax", "rupee", "expenditure", "defence", "interest", "subsidies"],
+      "answer": "Of every rupee the government spends, 22 paise goes to states' share of taxes, 20 paise to interest on past debt, and the rest to schemes, defence, subsidies and pensions.",
+      "link": { "href": "/budget", "label": "The rupee, sliced up" }
+    },
+    {
+      "id": "budget-interest",
+      "q": "How much of the budget just pays off old debt?",
+      "category": "budget",
+      "scope": "central",
+      "tags": ["interest", "debt", "borrowing", "budget"],
+      "answer": "Interest payments take 20 paise of every rupee the central government spends — the second-largest single item.",
+      "link": { "href": "/budget", "label": "Interest & borrowing" }
+    },
+    {
+      "id": "budget-defence",
+      "q": "How much does India budget for defence?",
+      "category": "budget",
+      "scope": "central",
+      "tags": ["defence", "military", "budget"],
+      "answer": "Defence accounts for about 8 paise of every rupee of central spending in 2025-26.",
+      "link": { "href": "/budget", "label": "Defence share" }
+    },
+    {
+      "id": "fiscal-deficit",
+      "q": "What is the fiscal deficit target?",
+      "category": "budget",
+      "scope": "central",
+      "tags": ["fiscal deficit", "gdp", "borrowing"],
+      "answer": "The fiscal deficit for 2025-26 is targeted at 4.4% of GDP — the gap between what the government spends and earns.",
+      "link": { "href": "/budget", "label": "Deficit & receipts" }
+    },
+    {
+      "id": "usd-inr",
+      "q": "What is the rupee-dollar rate today?",
+      "category": "rates",
+      "scope": "central",
+      "tags": ["usd", "inr", "rupee", "dollar", "exchange rate"],
+      "answer": "The FBIL reference rate is about ₹94.97 per US dollar (2 Sep 2026).",
+      "link": { "href": "/rates", "label": "Exchange rate" }
+    },
+    {
+      "id": "muni-property-tax",
+      "q": "How is my municipal property tax calculated?",
+      "category": "municipal",
+      "scope": "municipal",
+      "tags": ["property tax", "municipal", "ulb", "civic"],
+      "answer": "Property tax is set by your urban local body, usually from built-up area, usage and a locality rate. We're building live municipal breakdowns — this question is seeded pending portal ingestion.",
+      "link": { "href": "/ask?category=municipal", "label": "Municipal questions" }
+    },
+    {
+      "id": "muni-water",
+      "q": "Where do my municipal water charges go?",
+      "category": "municipal",
+      "scope": "municipal",
+      "tags": ["water", "municipal", "charges", "civic"],
+      "answer": "Water charges fund your city's supply, treatment and pipelines. Live ward-level data ingestion is on the roadmap.",
+      "link": { "href": "/ask?category=municipal", "label": "Municipal questions" }
+    },
+    {
+      "id": "muni-ward-budget",
+      "q": "How much does my ward get in the city budget?",
+      "category": "municipal",
+      "scope": "municipal",
+      "tags": ["ward", "municipal budget", "civic", "local"],
+      "answer": "City corporations publish ward-wise allocations, but rarely in a readable form. We're building this — the question is seeded in the central repository.",
+      "link": { "href": "/ask?category=municipal", "label": "Municipal questions" }
+    },
+    {
+      "id": "muni-garbage",
+      "q": "Who is responsible for garbage collection in my area?",
+      "category": "municipal",
+      "scope": "municipal",
+      "tags": ["garbage", "sanitation", "swachh", "municipal", "civic"],
+      "answer": "Solid-waste management is a municipal function funded from the city budget and user charges. Live municipal data is pending ingestion.",
+      "link": { "href": "/ask?category=municipal", "label": "Municipal questions" }
+    }
+  ]
+}
