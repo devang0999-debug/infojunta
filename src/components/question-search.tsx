@@ -34,9 +34,20 @@ export function QuestionSearch({ autoFocus = false }: { autoFocus?: boolean }) {
           Ask a question about government data
         </label>
         <div className="flex items-center gap-2">
-          <span className="pl-2 text-2xl" aria-hidden>
-            🔎
-          </span>
+          <svg
+            className="ml-1 shrink-0 text-ink-soft"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.4"
+            strokeLinecap="round"
+            aria-hidden
+          >
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4.3-4.3" />
+          </svg>
           <input
             id="q"
             autoFocus={autoFocus}
@@ -94,7 +105,7 @@ export function QuestionSearch({ autoFocus = false }: { autoFocus?: boolean }) {
             <button
               key={q}
               onClick={() => runExample(q)}
-              className="pop-btn bg-surface! py-1.5! text-xs!"
+              className="pop-btn pop-btn-surface py-1.5! text-xs!"
             >
               {q}
             </button>

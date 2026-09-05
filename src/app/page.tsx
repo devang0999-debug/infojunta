@@ -4,7 +4,6 @@ import { formatDate, formatValue } from "@/lib/format";
 import { BreakdownCard } from "@/components/breakdown-card";
 import { BreakdownBars } from "@/components/breakdown-bars";
 import { QuestionSearch } from "@/components/question-search";
-import { Starburst } from "@/components/starburst";
 
 export const revalidate = 300;
 
@@ -85,7 +84,7 @@ export default async function Home() {
 
           <div className="mt-7 flex flex-wrap gap-3">
             {repo && <Chip value={formatValue(repo.value, "%")} label="Repo rate" colorKey="pop-yellow" />}
-            {total && <Chip value={`$${total.value}B`} label="Forex reserves" colorKey="pop-teal" />}
+            {total && <Chip value={`₹${total.value}L cr`} label="Forex reserves" colorKey="pop-teal" />}
             {budgetTotal && (
               <Chip value={`₹${budgetTotal.value}L cr`} label="Union Budget" colorKey="pop-pink" />
             )}
@@ -107,9 +106,10 @@ export default async function Home() {
               </div>
 
               <div className="p-5">
-                <div className="flex items-end gap-3">
-                  <span className="font-[family-name:var(--font-heading)] text-5xl leading-none">
-                    ${total.value}B
+                <div className="flex flex-wrap items-end gap-x-3 gap-y-1">
+                  <span className="font-[family-name:var(--font-heading)] text-4xl leading-none sm:text-5xl">
+                    ₹{total.value}
+                    <span className="text-xl"> L cr</span>
                   </span>
                   {total.changeLabel && (
                     <span className="mb-1 font-[family-name:var(--font-mono)] text-sm font-bold text-up">
@@ -133,7 +133,8 @@ export default async function Home() {
                     className={`px-3 py-3 ${i < 2 ? "border-r-[3px] border-ink" : ""}`}
                   >
                     <div className="font-[family-name:var(--font-heading)] text-lg leading-none">
-                      ${b.value}B
+                      ₹{b.value}
+                      <span className="text-[10px]"> L cr</span>
                     </div>
                     <div className="mt-1 font-[family-name:var(--font-mono)] text-[10px] uppercase text-ink-soft">
                       {b.label.split(" ")[0]}
@@ -143,11 +144,11 @@ export default async function Home() {
               </div>
             </div>
 
-            {/* starbursts */}
-            <div className="mt-6 flex justify-center gap-3 sm:justify-end">
-              <Starburst colorKey="pop-teal" rotate={-8}>NO LOGIN</Starburst>
-              <Starburst colorKey="pop-yellow" rotate={5}>NO PAYWALL</Starburst>
-              <Starburst colorKey="pop-pink" rotate={-4}>SOURCED</Starburst>
+            {/* trust pills */}
+            <div className="mt-5 flex flex-wrap justify-center gap-2 sm:justify-end">
+              <span className="sticker">No login</span>
+              <span className="sticker">No paywall</span>
+              <span className="sticker">Every number sourced</span>
             </div>
           </div>
         )}

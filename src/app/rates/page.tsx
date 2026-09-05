@@ -23,7 +23,7 @@ export default async function RatesPage() {
     <div className="mx-auto max-w-6xl px-4 py-10">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <span className="sticker rotate-[-2deg]">💸 Cost of money</span>
+          <span className="sticker rotate-[-2deg]">Cost of money</span>
           <h1 className="mt-3 font-[family-name:var(--font-display)] text-4xl tracking-wide sm:text-6xl">
             RBI Policy Rates
           </h1>

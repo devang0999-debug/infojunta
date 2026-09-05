@@ -2,100 +2,27 @@
   "moduleKey": "rbi-forex-reserves",
   "title": "India's Foreign Exchange Reserves",
   "cadence": "weekly",
-  "plainSummary": "India's foreign exchange reserves stand at about US$729.3 billion, up US$12.42 billion over the week. Reserves cushion the rupee and pay for imports; most of it sits in foreign currencies, the rest in gold, SDRs and the IMF.",
+  "plainSummary": "India's foreign exchange reserves stand at about ₹69.8 lakh crore, up ₹1.40 lakh crore over the week. Reserves cushion the rupee and pay for imports; most of it sits in foreign currencies, the rest in gold, SDRs and the IMF.",
   "asOfDate": "2026-08-20T18:30:00.000Z",
-  "capturedAt": "2026-09-03T04:40:51.157Z",
+  "capturedAt": "2026-09-03T00:00:00.000Z",
   "metrics": [
-    {
-      "key": "total",
-      "label": "Total Reserves",
-      "value": 729.33,
-      "unit": "US$ bn",
-      "plain": "India's total war-chest of foreign assets — what backs the rupee and pays for imports.",
-      "previous": 716.91,
-      "change": 12.422,
-      "changeLabel": "+12.42 bn WoW",
-      "direction": "up"
-    },
-    {
-      "key": "fca",
-      "label": "Foreign Currency Assets",
-      "value": 591.33,
-      "unit": "US$ bn",
-      "plain": "Dollars, euros and other currencies the RBI holds — the bulk of the reserves.",
-      "previous": 581.85,
-      "change": 9.482,
-      "changeLabel": "+9.48 bn WoW",
-      "direction": "up"
-    },
-    {
-      "key": "gold",
-      "label": "Gold",
-      "value": 114.22,
-      "unit": "US$ bn",
-      "plain": "Gold held as reserve; rises in value when gold prices climb.",
-      "previous": 111.42,
-      "change": 2.801,
-      "changeLabel": "+2.80 bn WoW",
-      "direction": "up"
-    },
-    {
-      "key": "sdr",
-      "label": "SDRs",
-      "value": 18.85,
-      "unit": "US$ bn",
-      "plain": "Special Drawing Rights — an IMF reserve asset India can draw on.",
-      "previous": 18.74,
-      "change": 0.112,
-      "changeLabel": "+0.11 bn WoW",
-      "direction": "up"
-    },
-    {
-      "key": "imf",
-      "label": "Reserve Position in the IMF",
-      "value": 4.92,
-      "unit": "US$ bn",
-      "plain": "India's automatic drawing quota at the IMF.",
-      "previous": 4.9,
-      "change": 0.026,
-      "changeLabel": "+0.03 bn WoW",
-      "direction": "up"
-    }
+    { "key": "total", "label": "Total Reserves", "value": 69.81, "unit": "₹ lakh cr", "plain": "India's total war-chest of foreign assets — what backs the rupee and pays for imports.", "previous": 68.42, "change": 1.4, "changeLabel": "+1.40 L cr WoW", "direction": "up" },
+    { "key": "fca", "label": "Foreign Currency Assets", "value": 56.6, "unit": "₹ lakh cr", "plain": "Foreign currencies the RBI holds (dollars, euros, etc.) — the bulk of the reserves.", "previous": 55.53, "change": 1.08, "changeLabel": "+1.08 L cr WoW", "direction": "up" },
+    { "key": "gold", "label": "Gold", "value": 10.93, "unit": "₹ lakh cr", "plain": "Gold held as reserve; rises in value when gold prices climb.", "previous": 10.63, "change": 0.3, "changeLabel": "+0.30 L cr WoW", "direction": "up" },
+    { "key": "sdr", "label": "SDRs", "value": 1.8, "unit": "₹ lakh cr", "plain": "Special Drawing Rights — an IMF reserve asset India can draw on.", "previous": 1.79, "change": 0.02, "changeLabel": "+0.02 L cr WoW", "direction": "up" },
+    { "key": "imf", "label": "Reserve Position in the IMF", "value": 0.47, "unit": "₹ lakh cr", "plain": "India's automatic drawing quota at the IMF.", "previous": 0.47, "change": 0.0, "changeLabel": "+0.00 L cr WoW", "direction": "flat" }
   ],
   "breakdown": [
-    {
-      "label": "Foreign Currency Assets",
-      "value": 591.33,
-      "unit": "US$ bn",
-      "share": 81.1,
-      "colorKey": "pop-teal"
-    },
-    {
-      "label": "Gold",
-      "value": 114.22,
-      "unit": "US$ bn",
-      "share": 15.7,
-      "colorKey": "pop-yellow"
-    },
-    {
-      "label": "SDRs",
-      "value": 18.85,
-      "unit": "US$ bn",
-      "share": 2.6,
-      "colorKey": "pop-pink"
-    },
-    {
-      "label": "Reserve Position in the IMF",
-      "value": 4.92,
-      "unit": "US$ bn",
-      "share": 0.7,
-      "colorKey": "pop-purple"
-    }
+    { "label": "Foreign Currency Assets", "value": 56.6, "unit": "₹ lakh cr", "share": 81.1, "colorKey": "pop-teal" },
+    { "label": "Gold", "value": 10.93, "unit": "₹ lakh cr", "share": 15.7, "colorKey": "pop-yellow" },
+    { "label": "SDRs", "value": 1.8, "unit": "₹ lakh cr", "share": 2.6, "colorKey": "pop-pink" },
+    { "label": "Reserve Position in the IMF", "value": 0.47, "unit": "₹ lakh cr", "share": 0.7, "colorKey": "pop-purple" }
   ],
   "provenance": {
     "sourceName": "Reserve Bank of India — Weekly Statistical Supplement",
     "sourceUrl": "https://www.rbi.org.in/scripts/WSSViewDetail.aspx?TYPE=Section&PARAM1=2",
-    "fetchedAt": "2026-09-03T04:40:51.157Z",
-    "note": "Latest 'Foreign Exchange Reserves' table from the WSS. Values in US$; ~1 week reporting lag."
-  }
+    "fetchedAt": "2026-09-03T00:00:00.000Z",
+    "note": "Latest 'Foreign Exchange Reserves' table from the WSS (₹ crore column). ~1 week reporting lag."
+  },
+  "stale": true
 }

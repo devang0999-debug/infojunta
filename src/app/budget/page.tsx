@@ -31,7 +31,7 @@ export default async function BudgetPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
-      <span className="sticker rotate-[-2deg]">🧾 Your tax rupee, sliced</span>
+      <span className="sticker rotate-[-2deg]">Your tax rupee, sliced</span>
       <h1 className="mt-3 font-[family-name:var(--font-display)] text-4xl tracking-wide sm:text-6xl">
         Union Budget {budget.fiscalYear}
       </h1>

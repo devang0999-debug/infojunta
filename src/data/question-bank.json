@@ -38,7 +38,7 @@
       "category": "reserves",
       "scope": "central",
       "tags": ["forex", "reserves", "dollars", "rbi", "rupee"],
-      "answer": "India's foreign exchange reserves are about US$729 billion (week ended 21 Aug 2026), most of it in foreign currency assets, plus gold, SDRs and the IMF position.",
+      "answer": "India's foreign exchange reserves are about ₹69.8 lakh crore (week ended 21 Aug 2026), most of it in foreign currency assets, plus gold, SDRs and the IMF position.",
       "link": { "href": "/reserves", "label": "See the reserves breakdown" },
       "source": { "name": "RBI Weekly Statistical Supplement", "url": "https://www.rbi.org.in/" }
     },
@@ -48,7 +48,7 @@
       "category": "reserves",
       "scope": "central",
       "tags": ["gold", "reserves", "forex"],
-      "answer": "Gold makes up roughly US$114 billion of India's reserves — about 16% of the total.",
+      "answer": "Gold makes up roughly ₹10.9 lakh crore of India's reserves — about 16% of the total.",
       "link": { "href": "/reserves", "label": "Reserve composition" }
     },
     {

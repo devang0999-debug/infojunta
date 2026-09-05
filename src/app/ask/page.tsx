@@ -29,7 +29,7 @@ export default async function AskPage({
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-10">
-      <span className="sticker rotate-[-2deg]">❓ Question bank</span>
+      <span className="sticker rotate-[-2deg]">Question bank</span>
       <h1 className="mt-3 font-[family-name:var(--font-display)] text-4xl tracking-wide sm:text-6xl">
         Ask anything
       </h1>
@@ -48,7 +48,7 @@ export default async function AskPage({
       <div className="mt-10 flex flex-wrap gap-2">
         <Link
           href="/ask"
-          className={`pop-btn py-1.5! text-xs! ${active ? "bg-surface!" : ""}`}
+          className={`pop-btn py-1.5! text-xs! ${active ? "pop-btn-surface" : ""}`}
         >
           All
         </Link>
@@ -56,7 +56,7 @@ export default async function AskPage({
           <Link
             key={c}
             href={`/ask?category=${c}`}
-            className={`pop-btn py-1.5! text-xs! ${active === c ? "" : "bg-surface!"}`}
+            className={`pop-btn py-1.5! text-xs! ${active === c ? "" : "pop-btn-surface"}`}
           >
             {CATEGORY_META[c].label}
           </Link>

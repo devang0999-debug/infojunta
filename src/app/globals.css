@@ -18,18 +18,18 @@
   /* Fixed dark ink for text sitting on bright pop surfaces */
   --color-on-pop: #141210;
 
-  /* Pop primaries (constant across themes) */
-  --color-pop-yellow: #ffd400;
-  --color-pop-pink: #ff2e9a;
-  --color-pop-teal: #17d0c4;
-  --color-pop-purple: #7c5cff;
-  --color-pop-blue: #2f6fed;
-  --color-pop-green: #22b34b;
-  --color-pop-red: #ff3b30;
+  /* Pop primaries — softened for eye comfort (constant across themes) */
+  --color-pop-yellow: #f3c74b;
+  --color-pop-pink: #e8559b;
+  --color-pop-teal: #1cb3aa;
+  --color-pop-purple: #8a76ec;
+  --color-pop-blue: #3f7de0;
+  --color-pop-green: #2ba24f;
+  --color-pop-red: #e8544b;
 
   /* Semantic (data movement) */
-  --color-up: #16a34a;
-  --color-down: #ff2e9a;
+  --color-up: #1f9d51;
+  --color-down: #e8559b;
   --color-flat: #8a8175;
 
   /* Fonts (wired via next/font in layout.tsx) */
@@ -41,11 +41,11 @@
 
 /* ---- Theme tokens --------------------------------------------------- */
 :root {
-  --page: #f4eede;
-  --surface: #fffdf7;
-  --surface-2: #f6e8ca;
-  --ink: #141210;
-  --muted: #5c554a;
+  --page: #f1ece0;
+  --surface: #fbf7ee;
+  --surface-2: #efe6d0;
+  --ink: #201c16; /* warm near-black, softer than pure black */
+  --muted: #6a6357;
 
   --shadow-pop: 6px 6px 0 var(--color-ink);
   --shadow-pop-sm: 3px 3px 0 var(--color-ink);
@@ -54,20 +54,20 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --page: #161320;
-    --surface: #241e33;
-    --surface-2: #2f2745;
-    --ink: #f6f1e7;
-    --muted: #b3aabd;
+    --page: #1a1722;
+    --surface: #272233;
+    --surface-2: #332c42;
+    --ink: #ece6da; /* warm off-white, softer than pure white */
+    --muted: #a79fb0;
   }
 }
 
 :root[data-theme="dark"] {
-  --page: #161320;
-  --surface: #241e33;
-  --surface-2: #2f2745;
-  --ink: #f6f1e7;
-  --muted: #b3aabd;
+  --page: #1a1722;
+  --surface: #272233;
+  --surface-2: #332c42;
+  --ink: #ece6da;
+  --muted: #a79fb0;
 }
 
 * {
@@ -78,12 +78,12 @@ body {
   font-family: var(--font-body);
   background-color: var(--color-paper);
   color: var(--color-ink);
-  /* Ben-Day halftone dot wash */
+  /* Ben-Day halftone dot wash — subtle, so it doesn't tire the eyes */
   background-image: radial-gradient(
-    color-mix(in srgb, var(--color-ink) 55%, transparent) 0.7px,
-    transparent 0.7px
+    color-mix(in srgb, var(--color-ink) 22%, transparent) 0.6px,
+    transparent 0.6px
   );
-  background-size: 15px 15px;
+  background-size: 18px 18px;
   background-attachment: fixed;
 }
 
@@ -130,6 +130,61 @@ body {
 .pop-btn-pink {
   background: var(--color-pop-pink);
   color: #fff;
+}
+/* Neutral button that sits on the page/surface — themeable text so it stays
+   readable in dark mode (the default pop-btn uses fixed dark text for bright
+   backgrounds, which would vanish on a dark surface). */
+.pop-btn-surface {
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+
+/* ---- Tooltip (info) -------------------------------------------------- */
+.infotip {
+  position: relative;
+  display: inline-flex;
+}
+.infotip > .infotip-dot {
+  display: grid;
+  place-items: center;
+  width: 1.05rem;
+  height: 1.05rem;
+  border: 2px solid var(--color-ink);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  line-height: 1;
+  cursor: help;
+}
+.infotip > .infotip-bubble {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 15rem;
+  padding: 0.55rem 0.7rem;
+  border: 2.5px solid var(--color-ink);
+  border-radius: 10px;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  box-shadow: var(--shadow-pop-sm);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  line-height: 1.35;
+  text-transform: none;
+  letter-spacing: normal;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.12s ease;
+  z-index: 50;
+}
+.infotip:hover > .infotip-bubble,
+.infotip:focus-within > .infotip-bubble {
+  opacity: 1;
+  visibility: visible;
 }
 
 /* Sticker badge (defaults to a surface chip; add a bg utility to colour it) */

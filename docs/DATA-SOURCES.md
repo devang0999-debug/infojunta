@@ -18,8 +18,9 @@ exceptions worth building a pipeline on.
 
 - **Listing:** https://www.rbi.org.in/scripts/WSSViewDetail.aspx?TYPE=Section&PARAM1=2
 - **Table:** the latest `WSSView.aspx?Id=NNNNN` "Foreign Exchange Reserves".
-- **What we take:** Total, FCA, Gold, SDRs, IMF position — in US$ + weekly
-  variation.
+- **What we take:** Total, FCA, Gold, SDRs, IMF position — in **₹ (lakh crore)**
+  using the WSS ₹-crore column, plus weekly variation. (The table also has a US$
+  column; we present INR only.)
 - **Gotcha:** RBI nests data tables inside layout tables → parse with
   `.children("td")`, not `.find("td")`.
 - **Cadence:** weekly (published Fridays, ~1-week reporting lag).

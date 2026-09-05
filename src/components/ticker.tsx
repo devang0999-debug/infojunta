@@ -9,7 +9,7 @@ function buildStats(): Stat[] {
   const total = forex.metrics.find((x) => x.key === "total")?.value as number | undefined;
   return [
     { label: "Repo rate", value: `${m("repo")}%`, color: "text-pop-pink" },
-    { label: "Forex reserves", value: total ? `$${total}B` : "—", color: "text-pop-teal" },
+    { label: "Forex reserves", value: total ? `₹${total}L cr` : "—", color: "text-pop-teal" },
     { label: "Union Budget", value: `₹${(budget.totalExpenditureCr / 100000).toFixed(1)}L cr`, color: "text-pop-yellow" },
     { label: "Fiscal deficit", value: `${budget.fiscalDeficitPctGdp}% GDP`, color: "text-pop-purple" },
     { label: "CRR", value: `${m("crr")}%`, color: "text-pop-blue" },
