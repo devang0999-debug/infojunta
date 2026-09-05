@@ -214,7 +214,7 @@ function PaiseList({
               </div>
               {isOpen && (
                 <p className="mt-3 font-[family-name:var(--font-mono)] text-sm text-ink-soft">
-                  That&rsquo;s {fmtCrore(amountCr)} {noun} in 2025-26 — {it.paise}% of the total.
+                  That&rsquo;s {fmtCrore(amountCr)} {noun} — {it.paise}% of the total.
                 </p>
               )}
             </button>

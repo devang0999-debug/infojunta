@@ -1,6 +1,6 @@
 import rates from "@/data/snapshots/rbi-policy-rates.json";
 import forex from "@/data/snapshots/rbi-forex-reserves.json";
-import budget from "@/data/union-budget-2025-26.json";
+import budget from "@/data/union-budget.json";
 
 type Stat = { label: string; value: string; color: string };
 

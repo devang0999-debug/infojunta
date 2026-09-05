@@ -280,6 +280,31 @@ body {
   .ticker-track { animation: none; }
 }
 
+/* ---- Scrollytelling story ------------------------------------------- */
+.story-panel {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.story-panel.in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .story-panel {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+.story-figure {
+  font-family: var(--font-display);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  font-size: clamp(56px, 12vw, 132px);
+}
+
 /* Focus ring */
 :where(a, button, input, [tabindex]):focus-visible {
   outline: 3px solid var(--color-pop-blue);

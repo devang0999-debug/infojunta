@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import budget from "@/data/union-budget-2025-26.json";
+import budget from "@/data/union-budget.json";
 import { getSnapshot } from "@/lib/pipeline/store";
 import { MODULE_KEYS } from "@/lib/pipeline/schema";
 import { MetricStat } from "@/components/metric-stat";
@@ -12,9 +12,9 @@ import { notFound } from "next/navigation";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Union Budget 2025-26 — Story, Explore & Your Share — kya haal junta?",
+  title: "Union Budget 2026-27 — Story, Explore & Your Share — kya haal junta?",
   description:
-    "The Union Budget 2025-26 as a story, an interactive explorer (down to ministry allocations), and a 'your share' split — all from real government figures.",
+    "The Union Budget 2026-27 as a story, an interactive explorer (down to ministry allocations), and a 'your share' split — all from real government figures.",
 };
 
 export default async function BudgetPage() {

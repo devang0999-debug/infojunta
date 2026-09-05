@@ -1,0 +1,54 @@
+{
+  "fiscalYear": "2026-27",
+  "label": "Union Budget 2026-27 (Budget Estimates)",
+  "presentedOn": "2026-02-01",
+  "totalExpenditureCr": 5347315,
+  "totalReceiptsCr": 5347315,
+  "capexCr": 1221821,
+  "effectiveCapexCr": 1715000,
+  "fiscalDeficitPctGdp": 4.3,
+  "note": "Figures are Budget Estimates (BE) for FY 2026-27. 'Comes from' and 'goes to' are in paise per rupee, as published in Budget at a Glance.",
+  "source": {
+    "name": "Ministry of Finance — Budget at a Glance 2026-27",
+    "url": "https://www.indiabudget.gov.in/"
+  },
+  "ministriesSource": {
+    "name": "Union Budget 2026-27 — allocation to ministries (BE), as reported; figures rounded except Defence",
+    "url": "https://www.indiabudget.gov.in/"
+  },
+  "comesFrom": [
+    { "label": "Borrowings & other liabilities", "paise": 24, "colorKey": "pop-red" },
+    { "label": "Income tax", "paise": 21, "colorKey": "pop-blue" },
+    { "label": "Corporation tax", "paise": 18, "colorKey": "pop-purple" },
+    { "label": "GST & other taxes", "paise": 15, "colorKey": "pop-teal" },
+    { "label": "Non-tax receipts", "paise": 10, "colorKey": "pop-green" },
+    { "label": "Union excise duties", "paise": 6, "colorKey": "pop-yellow" },
+    { "label": "Customs", "paise": 4, "colorKey": "pop-pink" },
+    { "label": "Non-debt capital receipts", "paise": 2, "colorKey": "flat" }
+  ],
+  "goesTo": [
+    { "label": "States' share of taxes & duties", "paise": 22, "colorKey": "pop-blue" },
+    { "label": "Interest payments", "paise": 20, "colorKey": "pop-red" },
+    { "label": "Central sector schemes", "paise": 17, "colorKey": "pop-teal" },
+    { "label": "Defence", "paise": 11, "colorKey": "pop-pink" },
+    { "label": "Centrally sponsored schemes", "paise": 8, "colorKey": "pop-green" },
+    { "label": "Finance Commission & other transfers", "paise": 7, "colorKey": "pop-purple" },
+    { "label": "Other expenditure", "paise": 7, "colorKey": "flat" },
+    { "label": "Subsidies", "paise": 6, "colorKey": "pop-yellow" },
+    { "label": "Pensions", "paise": 2, "colorKey": "pop-purple" }
+  ],
+  "ministries": [
+    { "name": "Finance", "crore": 1972000, "colorKey": "flat", "note": "Mostly interest on debt, transfers to states and pensions — not day-to-day departmental spend." },
+    { "name": "Defence", "crore": 784678, "colorKey": "pop-pink", "note": "Highest of any ministry — about 15% of total spending; up over 15% on last year." },
+    { "name": "Road Transport & Highways", "crore": 310000, "colorKey": "pop-blue" },
+    { "name": "Railways", "crore": 293000, "colorKey": "pop-teal" },
+    { "name": "Consumer Affairs, Food & Public Distribution", "crore": 239000, "colorKey": "pop-yellow" },
+    { "name": "Home Affairs", "crore": 225000, "colorKey": "pop-purple" },
+    { "name": "Rural Development", "crore": 191000, "colorKey": "pop-green" },
+    { "name": "Chemicals & Fertilisers", "crore": 177000, "colorKey": "pop-red" },
+    { "name": "Agriculture & Farmers' Welfare", "crore": 140000, "colorKey": "pop-blue" },
+    { "name": "Education", "crore": 139000, "colorKey": "pop-teal" },
+    { "name": "Communications", "crore": 102267, "colorKey": "pop-purple" },
+    { "name": "Housing & Urban Affairs", "crore": 85522, "colorKey": "pop-yellow" }
+  ]
+}

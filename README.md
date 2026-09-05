@@ -18,7 +18,7 @@ No paywall. Every number links back to its official source.
 | --- | --- | --- |
 | **RBI Policy Rates** — repo, reverse repo, MSF, SDF, bank rate, CRR, SLR, ₹/USD | RBI homepage (FBIL) | live scrape |
 | **Forex Reserves** — total, FCA, gold, SDRs, IMF position + weekly change | RBI Weekly Statistical Supplement | weekly scrape |
-| **Union Budget 2025-26** — where the rupee comes from / goes to | Budget at a Glance | annual, verified snapshot |
+| **Union Budget 2026-27** — story, explore (to ministry level) & your share | Budget at a Glance | annual, verified snapshot |
 | **Question bank** — central, searchable repository of civic questions | seeded + extensible | — |
 
 ## How it works

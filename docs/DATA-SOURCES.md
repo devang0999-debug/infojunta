@@ -30,9 +30,12 @@ exceptions worth building a pipeline on.
 - **URL:** https://www.indiabudget.gov.in/ (Budget at a Glance)
 - **Why not scraped:** annual, PDF/Excel only. Pretending it's a weekly scrape
   would be dishonest.
-- **What we take:** total expenditure, capex, fiscal deficit, and the paise-per-
-  rupee "comes from / goes to" split (`data/union-budget-2025-26.json`).
-- **Refresh:** manually each February on budget day, with the source cited.
+- **What we take:** total expenditure, capex, fiscal deficit, the paise-per-
+  rupee "comes from / goes to" split, and ministry-wise allocations
+  (`data/union-budget.json`). Currently FY2026-27 (₹53.47 lakh cr total,
+  fiscal deficit 4.3% of GDP).
+- **Refresh:** update the dataset each February on budget day, source cited.
+  Ministry figures are as-reported (exact table lives in the PRS/Expenditure PDF).
 
 ## Municipal — 🔜 roadmap
 

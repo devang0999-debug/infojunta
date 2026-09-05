@@ -23,7 +23,7 @@ it, done.
 | --- | --- | --- |
 | `rbi-policy-rates` | Scrape the `#wrapper` rates box on the RBI homepage. | Reads the whole box into a name→value map, then picks the rates. Survives row re-ordering. |
 | `rbi-forex-reserves` | Two-hop: fetch WSS section listing → take the **latest** `WSSView` link → parse the reserves table. | Never hardcodes a weekly URL. Uses `.children("td")` to avoid nested-table cell bleed. |
-| `union-budget` | Read a verified snapshot dataset (`src/data/union-budget-2025-26.json`). | Annual release; refreshed each February. Not pretended to be live. |
+| `union-budget` | Read a verified snapshot dataset (`src/data/union-budget.json`, FY2026-27). | Annual release; refreshed each February. Not pretended to be live. |
 
 `fetch.ts` sets a browser-ish User-Agent and timeout (gov sites are picky) and
 tolerant number parsing (`₹ 50,65,345 crore` → number).

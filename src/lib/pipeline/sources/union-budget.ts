@@ -1,4 +1,4 @@
-import budget from "@/data/union-budget-2025-26.json";
+import budget from "@/data/union-budget.json";
 import {
   MODULE_KEYS,
   type BreakdownItem,
