@@ -13,6 +13,10 @@
     "name": "Ministry of Finance — Budget at a Glance 2025-26",
     "url": "https://www.indiabudget.gov.in/"
   },
+  "ministriesSource": {
+    "name": "Union Budget 2025-26 — Expenditure Budget (allocation to ministries), BE",
+    "url": "https://www.indiabudget.gov.in/"
+  },
   "comesFrom": [
     { "label": "Borrowings & other liabilities", "paise": 24, "colorKey": "pop-red" },
     { "label": "Income tax", "paise": 22, "colorKey": "pop-blue" },
@@ -33,5 +37,21 @@
     { "label": "Subsidies", "paise": 6, "colorKey": "pop-yellow" },
     { "label": "Pensions", "paise": 4, "colorKey": "pop-purple" },
     { "label": "Other expenditure", "paise": 8, "colorKey": "flat" }
+  ],
+  "ministries": [
+    { "name": "Finance", "crore": 1939001, "colorKey": "flat", "note": "Mostly interest on debt, transfers to states and pensions — not day-to-day departmental spend." },
+    { "name": "Defence", "crore": 681210, "colorKey": "pop-pink" },
+    { "name": "Road Transport & Highways", "crore": 287333, "colorKey": "pop-blue" },
+    { "name": "Railways", "crore": 255445, "colorKey": "pop-teal" },
+    { "name": "Home Affairs", "crore": 233210, "colorKey": "pop-purple" },
+    { "name": "Consumer Affairs, Food & Public Distribution", "crore": 215767, "colorKey": "pop-yellow" },
+    { "name": "Rural Development", "crore": 190405, "colorKey": "pop-green" },
+    { "name": "Chemicals & Fertilisers", "crore": 161965, "colorKey": "pop-red" },
+    { "name": "Agriculture & Farmers' Welfare", "crore": 137756, "colorKey": "pop-blue" },
+    { "name": "Education", "crore": 128650, "colorKey": "pop-teal" },
+    { "name": "Communications", "crore": 108105, "colorKey": "pop-purple" },
+    { "name": "Health & Family Welfare", "crore": 99858, "colorKey": "pop-pink" },
+    { "name": "Jal Shakti", "crore": 99502, "colorKey": "pop-green" },
+    { "name": "Housing & Urban Affairs", "crore": 96777, "colorKey": "pop-yellow" }
   ]
 }
