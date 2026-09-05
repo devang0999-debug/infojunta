@@ -4,6 +4,8 @@ import { MODULE_LIST } from "@/lib/pipeline/registry";
 
 // Always run fresh — this endpoint IS the pipeline trigger.
 export const dynamic = "force-dynamic";
+// The forex scrape fetches a large WSS page; give it headroom (Hobby allows 60s).
+export const maxDuration = 60;
 
 async function handle(moduleKey: string) {
   if (moduleKey === "all") {
