@@ -21,7 +21,7 @@ export function RecencyBadge({
   return (
     <span className="sticker" title={`As of ${formatDate(asOfDate)}`}>
       <span
-        className={`inline-block h-2.5 w-2.5 rounded-full border-2 border-ink ${
+        className={`inline-block h-2 w-2 rounded-full ${
           stale ? "bg-flat" : "bg-pop-green"
         }`}
         aria-hidden

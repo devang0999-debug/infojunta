@@ -24,7 +24,7 @@ export function Logo({
   const inner = (
     <span className="inline-flex items-center gap-2.5">
       <span
-        className={`grid ${tile} place-items-center rounded-[10px] border-[2.5px] border-ink bg-pop-pink font-[family-name:var(--font-heading)] text-white shadow-[3px_3px_0_var(--color-ink)]`}
+        className={`grid ${tile} place-items-center rounded-[9px] bg-pop-pink font-[family-name:var(--font-heading)] text-white shadow-[var(--shadow-sm)] ring-1 ring-black/10`}
         aria-hidden
       >
         ?

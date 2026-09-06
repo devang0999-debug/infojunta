@@ -30,7 +30,7 @@ export default async function AskPage({
   return (
     <div className="mx-auto max-w-4xl px-4 py-10">
       <span className="sticker rotate-[-2deg]">Question bank</span>
-      <h1 className="mt-3 font-[family-name:var(--font-display)] text-4xl tracking-wide sm:text-6xl">
+      <h1 className="mt-3 font-[family-name:var(--font-display)] text-4xl tracking-tight sm:text-6xl">
         Ask anything
       </h1>
       <p className="mt-3 max-w-2xl text-ink-soft">

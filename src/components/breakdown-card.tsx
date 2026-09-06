@@ -18,10 +18,10 @@ export function BreakdownCard({
   return (
     <Link
       href={href}
-      className="pop-card group flex flex-col p-5 transition-transform hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[10px_10px_0_var(--color-ink)]"
+      className="pop-card group flex flex-col p-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[var(--shadow-lg)] hover:border-edge-strong"
     >
       <div
-        className="mb-3 h-2 w-16 rounded-full border-2 border-ink"
+        className="mb-3 h-1.5 w-12 rounded-full"
         style={{ background: colorFor(accentColorKey) }}
         aria-hidden
       />

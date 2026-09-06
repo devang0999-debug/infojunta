@@ -28,14 +28,24 @@ export function RefreshButton({ moduleKey }: { moduleKey: string }) {
     state === "loading"
       ? "Pulling…"
       : state === "ok"
-        ? "Updated ✓"
+        ? "Updated"
         : state === "err"
           ? "Source unavailable"
           : "Pull latest";
 
   return (
-    <button onClick={refresh} disabled={state === "loading"} className="pop-btn pop-btn-surface">
-      {state !== "loading" && <span aria-hidden>↻</span>}
+    <button
+      onClick={refresh}
+      disabled={state === "loading"}
+      className={`pop-btn pop-btn-surface ${state === "err" ? "text-down!" : ""}`}
+    >
+      {state === "loading" ? (
+        <span className="spinner" aria-hidden />
+      ) : state === "ok" ? (
+        <span className="text-up" aria-hidden>✓</span>
+      ) : (
+        <span aria-hidden>↻</span>
+      )}
       {label}
     </button>
   );

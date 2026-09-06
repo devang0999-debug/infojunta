@@ -26,10 +26,10 @@ export function Ticker() {
       {[...stats, ...stats].map((s, i) => (
         <span
           key={i}
-          className="flex items-center gap-2 px-5 font-[family-name:var(--font-mono)] text-sm uppercase tracking-wide text-[#f6f1e7]"
+          className="flex items-center gap-2 px-5 font-[family-name:var(--font-mono)] text-sm tracking-tight text-paper"
         >
-          <span className={s.color}>★</span>
-          <span className="text-[#b9b2a4]">{s.label}</span>
+          <span className={s.color} aria-hidden>•</span>
+          <span className="text-paper/60">{s.label}</span>
           <span className={`font-bold ${s.color}`}>{s.value}</span>
         </span>
       ))}
@@ -37,7 +37,7 @@ export function Ticker() {
   );
 
   return (
-    <div className="overflow-hidden border-y-[3px] border-ink bg-[#141210] py-2">
+    <div className="overflow-hidden border-y border-edge bg-ink py-2.5">
       {run}
     </div>
   );

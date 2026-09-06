@@ -98,11 +98,12 @@ export default async function Home() {
     <div className="mx-auto max-w-5xl px-4">
       {/* Compact hero */}
       <section className="pt-12 pb-6 sm:pt-16">
-        <span className="sticker on-pop bg-pop-teal!">
-          <span className="text-pop-red">●</span> Live · {budget.fiscalYear} · three official sources
+        <span className="sticker">
+          <span className="inline-block h-1.5 w-1.5 rounded-full bg-pop-green" aria-hidden />
+          Live · {budget.fiscalYear} · three official sources
         </span>
-        <h1 className="mt-5 font-[family-name:var(--font-display)] text-5xl font-black uppercase leading-[0.92] tracking-tight sm:text-7xl">
-          Government data, <span className="ink-outline italic">decoded.</span>
+        <h1 className="mt-5 font-[family-name:var(--font-display)] text-5xl leading-[0.95] tracking-tight sm:text-7xl">
+          Government data, <span className="ink-outline">decoded.</span>
         </h1>
         <p className="mt-5 max-w-2xl text-lg text-ink-soft">
           Scroll the story of India&rsquo;s money — the {budget.fiscalYear} Budget, RBI rates and
@@ -111,8 +112,8 @@ export default async function Home() {
         <div className="mt-7 max-w-2xl">
           <QuestionSearch />
         </div>
-        <p className="mt-8 font-[family-name:var(--font-heading)] text-sm text-ink-soft">
-          The story ↓
+        <p className="mt-8 flex items-center gap-2 text-sm font-medium text-ink-soft">
+          Scroll the story <span aria-hidden>↓</span>
         </p>
       </section>
 
@@ -149,7 +150,7 @@ export default async function Home() {
 
       {/* Mission */}
       <section className="pb-12">
-        <div className="pop-card on-pop bg-pop-yellow! p-6 sm:p-8">
+        <div className="pop-card tint-yellow p-6 sm:p-8">
           <h2 className="font-[family-name:var(--font-heading)] text-2xl">
             The problem isn&rsquo;t missing data. It&rsquo;s missing translation.
           </h2>

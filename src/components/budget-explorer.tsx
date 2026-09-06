@@ -117,7 +117,7 @@ function Story({ data, totalLakhCr }: { data: BudgetData; totalLakhCr: number })
       {panels.map((p, i) => (
         <div key={i} className="pop-card flex flex-col gap-3 p-6 sm:flex-row sm:items-center">
           <div
-            className="on-pop shrink-0 rounded-xl border-[3px] border-ink px-4 py-3 text-center font-[family-name:var(--font-heading)] text-2xl shadow-[3px_3px_0_var(--color-ink)] sm:w-56"
+            className="on-pop shrink-0 rounded-xl px-4 py-3 text-center font-[family-name:var(--font-heading)] text-2xl shadow-[var(--shadow-md)] sm:w-56"
             style={{ background: colorFor(p.color) }}
           >
             {p.big}
@@ -153,8 +153,10 @@ function Explore({ data }: { data: BudgetData }) {
               setTab(key);
               setOpen(null);
             }}
-            className={`rounded-full border-[2.5px] border-ink px-3 py-1.5 text-xs font-[family-name:var(--font-heading)] shadow-[2px_2px_0_var(--color-ink)] ${
-              tab === key ? "bg-pop-yellow on-pop" : "bg-surface text-ink"
+            className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
+              tab === key
+                ? "border-transparent bg-pop-yellow on-pop"
+                : "border-edge bg-surface text-ink-soft hover:text-ink"
             }`}
           >
             {label}
@@ -206,9 +208,9 @@ function PaiseList({
                 <span className="font-medium">{it.label}</span>
                 <span className="font-[family-name:var(--font-mono)] font-bold">{it.paise}p / ₹1</span>
               </div>
-              <div className="mt-2 h-4 w-full overflow-hidden rounded border-2 border-ink bg-surface">
+              <div className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-surface-2">
                 <div
-                  className="h-full"
+                  className="h-full rounded-full transition-[width] duration-500"
                   style={{ width: `${(it.paise / max) * 100}%`, background: colorFor(it.colorKey) }}
                 />
               </div>
@@ -247,9 +249,9 @@ function MinistryList({
                 <span className="font-medium">{m.name}</span>
                 <span className="font-[family-name:var(--font-mono)] font-bold">{fmtCrore(m.crore)}</span>
               </div>
-              <div className="mt-2 h-4 w-full overflow-hidden rounded border-2 border-ink bg-surface">
+              <div className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-surface-2">
                 <div
-                  className="h-full"
+                  className="h-full rounded-full transition-[width] duration-500"
                   style={{ width: `${(m.crore / max) * 100}%`, background: colorFor(m.colorKey) }}
                 />
               </div>
@@ -297,7 +299,7 @@ function YourShare({ data }: { data: BudgetData }) {
       </p>
 
       <div className="mt-5 flex flex-wrap items-center gap-3">
-        <div className="flex items-center rounded-xl border-[3px] border-ink bg-surface px-3 py-2 shadow-[3px_3px_0_var(--color-ink)]">
+        <div className="flex items-center rounded-xl border border-edge-strong bg-surface px-3 py-2 shadow-[var(--shadow-sm)]">
           <span className="mr-1 font-[family-name:var(--font-heading)] text-xl">₹</span>
           <input
             type="number"
@@ -312,8 +314,10 @@ function YourShare({ data }: { data: BudgetData }) {
           <button
             key={p}
             onClick={() => setAmount(p)}
-            className={`rounded-full border-[2.5px] border-ink px-3 py-1 text-xs font-[family-name:var(--font-heading)] shadow-[2px_2px_0_var(--color-ink)] ${
-              clamped === p ? "bg-pop-yellow on-pop" : "bg-surface text-ink"
+            className={`rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
+              clamped === p
+                ? "border-transparent bg-pop-yellow on-pop"
+                : "border-edge bg-surface text-ink-soft hover:text-ink"
             }`}
           >
             {fmtRupees(p)}
@@ -347,7 +351,7 @@ function YourShare({ data }: { data: BudgetData }) {
                 <span className="text-ink-soft">({r.paise}%)</span>
               </span>
             </div>
-            <div className="h-5 w-full overflow-hidden rounded-md border-[2.5px] border-ink bg-surface">
+            <div className="h-2.5 w-full overflow-hidden rounded-full bg-surface-2">
               <div
                 className="h-full"
                 style={{ width: `${Math.max(2, (r.amount / max) * 100)}%`, background: colorFor(r.colorKey) }}

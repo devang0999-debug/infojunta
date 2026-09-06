@@ -1,20 +1,14 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Archivo_Black, Space_Grotesk, Space_Mono } from "next/font/google";
+import { Archivo_Black, Space_Grotesk, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@/components/analytics";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Ticker } from "@/components/ticker";
 
-// Comic-pop type system: Playfair = editorial serif headlines,
-// Archivo Black = wordmark + section headings, Space Grotesk = body/numbers,
-// Space Mono = labels, tickers, provenance.
-const playfair = Playfair_Display({
-  variable: "--font-display",
-  weight: ["700", "800", "900"],
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-});
+// Clean-pop type system: Archivo Black = display + headings (heavy, tight),
+// Space Grotesk = body + numbers, Space Mono = labels / tickers / provenance.
+// (--font-display maps to --font-heading in globals.css.)
 const archivo = Archivo_Black({
   variable: "--font-heading",
   weight: "400",
@@ -22,6 +16,7 @@ const archivo = Archivo_Black({
 });
 const grotesk = Space_Grotesk({
   variable: "--font-body",
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
 });
 const mono = Space_Mono({
@@ -43,7 +38,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${archivo.variable} ${grotesk.variable} ${mono.variable} h-full antialiased`}
+      className={`${archivo.variable} ${grotesk.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-paper text-ink">
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />

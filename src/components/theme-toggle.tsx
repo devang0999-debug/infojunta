@@ -40,7 +40,7 @@ export function ThemeToggle() {
       onClick={toggle}
       aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
       title={`Switch to ${isDark ? "light" : "dark"} mode`}
-      className="grid h-9 w-9 place-items-center rounded-lg border-[2.5px] border-ink bg-surface text-ink shadow-[2px_2px_0_var(--color-ink)] transition-transform hover:-translate-y-0.5"
+      className="grid h-9 w-9 place-items-center rounded-lg border border-edge-strong bg-surface text-ink shadow-[var(--shadow-sm)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-md)]"
     >
       <svg
         width="17"

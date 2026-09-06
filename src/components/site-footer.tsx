@@ -2,7 +2,7 @@ import { Logo } from "./logo";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t-[3px] border-ink bg-surface">
+    <footer className="border-t border-edge bg-surface">
       <div className="mx-auto max-w-6xl px-4 py-8 text-sm">
         <Logo size="sm" href={null} />
         <p className="mt-3 max-w-2xl text-ink-soft">

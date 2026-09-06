@@ -46,8 +46,8 @@ export function DonutChart({
         className="shrink-0"
       >
         {/* outer + inner ink outlines */}
-        <circle cx={cx} cy={cy} r={r + stroke / 2} fill="none" stroke="var(--color-ink)" strokeWidth={3} />
-        <circle cx={cx} cy={cy} r={r - stroke / 2} fill="none" stroke="var(--color-ink)" strokeWidth={3} />
+        <circle cx={cx} cy={cy} r={r + stroke / 2} fill="none" stroke="var(--color-edge)" strokeWidth={1} />
+        <circle cx={cx} cy={cy} r={r - stroke / 2} fill="none" stroke="var(--color-edge)" strokeWidth={1} />
         <g transform={`rotate(-90 ${cx} ${cy})`}>
           {arcs.map((a, i) => (
             <circle
@@ -96,7 +96,7 @@ export function DonutChart({
         {items.map((it) => (
           <li key={it.label} className="flex items-center gap-3 text-sm">
             <span
-              className="inline-block h-4 w-4 shrink-0 rounded border-2 border-ink"
+              className="inline-block h-3 w-3 shrink-0 rounded-[4px]"
               style={{ background: colorFor(it.colorKey) }}
               aria-hidden
             />

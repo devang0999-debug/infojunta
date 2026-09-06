@@ -51,7 +51,7 @@ export function StoryScroll({ panels }: { panels: StoryPanel[] }) {
         <section
           key={i}
           data-idx={i}
-          className={`story-panel flex min-h-[62vh] items-center border-b-[3px] border-ink/15 py-10 ${
+          className={`story-panel flex min-h-[58vh] items-center border-b border-edge py-10 ${
             i % 2 === 1 ? "justify-end text-right" : ""
           }`}
         >
