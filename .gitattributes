@@ -1,0 +1,12 @@
+# Normalize line endings
+* text=auto eol=lf
+
+# GitHub Linguist — exclude generated / machine-written files from the
+# language stats so the bar reflects hand-written code.
+package-lock.json      linguist-generated
+next-env.d.ts          linguist-generated
+src/data/snapshots/*.json  linguist-generated
+public/embed/data.json linguist-generated
+
+# Binary assets
+*.ico binary

@@ -27,8 +27,27 @@ Output is written to `../src/data/snapshots/<module>.json`.
 | --- | --- | --- |
 | `rbi_rates.py` | RBI homepage `#wrapper` rates box | repo, reverse repo, SDF, MSF, bank rate, CRR, SLR, ₹/USD |
 | `rbi_forex.py` | RBI Weekly Statistical Supplement (two-hop) | Total/FCA/Gold/SDRs/IMF in ₹ lakh crore + weekly change |
-| `fetch.py` | — | shared fetch + tolerant number parsing |
-| `run.py` | — | runner that writes snapshots |
+| `budget.py` | `src/data/union-budget.json` | builds the Budget snapshot + top-ministry helper (INR) |
+| `data_gov.py` | data.gov.in OGD API | clean JSON API for more series later (needs a free key) |
+| `export_embed.py` | snapshots + budget | writes `public/embed/data.json` for the embeddable widgets |
+| `fetch.py` | — | shared fetch + tolerant number parsing + `direction()` |
+| `run.py` | — | runner: refresh scrapers, then export the embed payload |
+
+## Tests
+
+```bash
+pip install pytest
+pytest            # from the pipeline/ directory
+```
+
+`tests/test_pipeline.py` checks the parsers against sample HTML (nested-table
+handling, ₹-crore → ₹ lakh crore, the WSS link resolver) and the budget builder.
+
+## Embeddable widgets
+
+`export_embed.py` feeds `public/embed/` — a dependency-free vanilla-JS widget
+(`widget.js` + `widget.css`) that any site can drop in to show live RBI rates,
+forex reserves, or the Budget rupee split. See `public/embed/index.html`.
 
 ## Scheduling (optional)
 

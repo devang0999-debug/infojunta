@@ -1,0 +1,37 @@
+{
+  "updated": "2026-09-06",
+  "site": "https://infojunta.vercel.app",
+  "rates": {
+    "repo": 5.25,
+    "crr": 3.0,
+    "slr": 18.0,
+    "unit": "%",
+    "asOf": "2026-09-02",
+    "source": "Reserve Bank of India"
+  },
+  "forex": {
+    "total": 69.81,
+    "unit": "₹ lakh cr",
+    "changeLabel": "+1.40 L cr WoW",
+    "direction": "up",
+    "asOf": "2026-08-21",
+    "source": "RBI Weekly Statistical Supplement"
+  },
+  "budget": {
+    "fiscalYear": "2026-27",
+    "totalLakhCr": 53.47,
+    "deficitPctGdp": 4.3,
+    "goesTo": [
+      { "label": "States' share of taxes", "paise": 22 },
+      { "label": "Interest payments", "paise": 20 },
+      { "label": "Central sector schemes", "paise": 17 },
+      { "label": "Defence", "paise": 11 },
+      { "label": "Centrally sponsored schemes", "paise": 8 },
+      { "label": "Finance Commission & transfers", "paise": 7 },
+      { "label": "Other expenditure", "paise": 7 },
+      { "label": "Subsidies", "paise": 6 },
+      { "label": "Pensions", "paise": 2 }
+    ],
+    "source": "Union Budget 2026-27"
+  }
+}

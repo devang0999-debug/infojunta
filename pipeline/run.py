@@ -15,6 +15,7 @@ import json
 import pathlib
 import sys
 
+import export_embed
 import rbi_forex
 import rbi_rates
 
@@ -54,6 +55,13 @@ def main() -> int:
         except Exception as exc:  # noqa: BLE001 - report and continue
             print(f"  FAILED: {exc}")
             failures += 1
+
+    # Keep the public embed payload in sync with the fresh snapshots.
+    try:
+        export_embed.main()
+    except Exception as exc:  # noqa: BLE001
+        print(f"  embed export skipped: {exc}")
+
     return 1 if failures else 0
 
 

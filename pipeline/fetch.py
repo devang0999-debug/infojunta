@@ -38,3 +38,14 @@ def to_number(raw: str | None) -> float:
         return float(cleaned)
     except ValueError:
         return float("nan")
+
+
+def direction(current: float, previous: float) -> str:
+    """'up' | 'down' | 'flat' — flat if previous is NaN/None."""
+    if previous is None or previous != previous:  # NaN check
+        return "flat"
+    if current > previous:
+        return "up"
+    if current < previous:
+        return "down"
+    return "flat"

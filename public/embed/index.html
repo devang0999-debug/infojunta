@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Embeds · kya haal junta?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root { --ink:#201c16; --paper:#f1ece0; --pink:#e8559b; --muted:#6a6357; }
+  * { box-sizing:border-box; margin:0; }
+  body {
+    background:var(--paper); color:var(--ink);
+    font-family:"Space Grotesk",system-ui,sans-serif; line-height:1.55;
+    background-image:radial-gradient(rgba(32,28,22,.16) .6px,transparent .6px);
+    background-size:18px 18px;
+  }
+  .wrap { max-width:900px; margin:0 auto; padding:48px 22px 80px; }
+  h1 { font-family:"Archivo Black",sans-serif; font-size:clamp(30px,6vw,52px); line-height:1.02; }
+  h1 span { color:var(--pink); }
+  .lede { margin-top:14px; max-width:60ch; color:#3a352c; font-size:18px; }
+  h2 { font-family:"Archivo Black",sans-serif; font-size:22px; margin:44px 0 8px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:22px; margin-top:20px; align-items:start; }
+  pre {
+    background:#fff; border:3px solid var(--ink); border-radius:12px;
+    box-shadow:4px 4px 0 var(--ink); padding:14px 16px; margin-top:10px;
+    overflow-x:auto; font-family:"Space Mono",monospace; font-size:13px;
+  }
+  code { font-family:"Space Mono",monospace; }
+  .demo { display:flex; flex-direction:column; gap:8px; }
+  .demo .cap { font-family:"Space Mono",monospace; font-size:12px; color:var(--muted); }
+  a.home { color:var(--ink); font-weight:700; }
+  footer { margin-top:60px; font-size:13px; color:var(--muted); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Embed <span>live</span> government data</h1>
+    <p class="lede">
+      Put a live RBI rate, forex-reserves or Union-Budget card on your own site, blog or newsletter.
+      One line of HTML, one script tag. No account, no key, no tracking. Numbers update at the source
+      &mdash; from <a class="home" href="/">kya haal junta?</a>
+    </p>
+
+    <h2>1. Add a placeholder + the script</h2>
+    <pre>&lt;div data-khj="repo"&gt;&lt;/div&gt;
+&lt;script src="https://infojunta.vercel.app/embed/widget.js" async&gt;&lt;/script&gt;</pre>
+    <p style="margin-top:10px;color:var(--muted);font-size:14px">
+      Set <code>data-khj</code> to <code>repo</code>, <code>forex</code> or <code>budget</code>.
+      Add as many as you like &mdash; one script tag covers them all.
+    </p>
+
+    <h2>2. Live preview</h2>
+    <div class="grid">
+      <div class="demo"><span class="cap">data-khj="repo"</span><div data-khj="repo"></div></div>
+      <div class="demo"><span class="cap">data-khj="forex"</span><div data-khj="forex"></div></div>
+      <div class="demo"><span class="cap">data-khj="budget"</span><div data-khj="budget"></div></div>
+    </div>
+
+    <h2>Prefer to mount it yourself?</h2>
+    <pre>&lt;div id="my-rate"&gt;&lt;/div&gt;
+&lt;script src="https://infojunta.vercel.app/embed/widget.js"&gt;&lt;/script&gt;
+&lt;script&gt;KyaHaalJunta.render("#my-rate", "forex");&lt;/script&gt;</pre>
+
+    <footer>
+      Data belongs to its publishers (RBI, Ministry of Finance). kya haal junta? only makes it
+      readable. Widgets are free to use and attribute back to the source.
+    </footer>
+  </div>
+
+  <script src="/embed/widget.js" async></script>
+</body>
+</html>
