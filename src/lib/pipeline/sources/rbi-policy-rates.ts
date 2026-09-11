@@ -65,7 +65,15 @@ export function parseRbiRates(html: string): NormalizedSnapshot {
     .map((el) => $(el).text().trim())
     .find((t) => /As at/i.test(t));
   const dateMatch = asAt?.match(/of\s+([A-Za-z]+ \d{1,2}, \d{4})/);
-  const asOfDate = dateMatch ? new Date(dateMatch[1]).toISOString() : new Date().toISOString();
+  // Never substitute fetch time for the release date — a wrong date on a trust
+  // product is worse than a visible failure. If RBI's "As at …" line is gone,
+  // the layout changed: fail loudly so the cached snapshot keeps showing.
+  if (!dateMatch) {
+    throw new Error(
+      "RBI: could not read the 'As at …' date on the rates box — refusing to stamp fetch time",
+    );
+  }
+  const asOfDate = new Date(dateMatch[1]).toISOString();
 
   const metrics = WANT.filter((w) => map.has(w.name)).map((w) => {
     const rawVal = map.get(w.name)!;

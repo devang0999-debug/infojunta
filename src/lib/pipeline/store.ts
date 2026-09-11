@@ -41,10 +41,20 @@ export async function getAllSnapshots(): Promise<NormalizedSnapshot[]> {
   return snaps.filter((s): s is NormalizedSnapshot => s !== null);
 }
 
-/** Persist a fresh snapshot: Supabase (if configured) + committed JSON (dev). */
+/**
+ * Persist a fresh snapshot: Supabase (if configured) + committed JSON (dev).
+ *
+ * Fails LOUDLY. The Supabase client returns errors instead of throwing, so a
+ * failed write used to pass silently and the daily cron reported success while
+ * saving nothing. Now any write error throws, and a scraped module that lands
+ * nowhere (no Supabase, read-only disk) throws too — so `refreshModule` reports
+ * `ok: false` and the endpoint returns 502 instead of a quiet lie.
+ */
 export async function saveSnapshot(snap: NormalizedSnapshot): Promise<void> {
+  let persisted = false;
+
   if (isAdminConfigured && supabaseAdmin) {
-    await supabaseAdmin.from(TABLE).upsert(
+    const { error: upsertError } = await supabaseAdmin.from(TABLE).upsert(
       {
         module_key: snap.moduleKey,
         payload: snap,
@@ -53,16 +63,30 @@ export async function saveSnapshot(snap: NormalizedSnapshot): Promise<void> {
       },
       { onConflict: "module_key" },
     );
-    await supabaseAdmin.from(HISTORY).insert({
+    if (upsertError) {
+      throw new Error(
+        `Supabase upsert failed for ${snap.moduleKey}: ${upsertError.message}`,
+      );
+    }
+
+    const { error: historyError } = await supabaseAdmin.from(HISTORY).insert({
       module_key: snap.moduleKey,
       payload: snap,
       as_of_date: snap.asOfDate,
       captured_at: snap.capturedAt,
     });
+    if (historyError) {
+      throw new Error(
+        `Supabase history insert failed for ${snap.moduleKey}: ${historyError.message}`,
+      );
+    }
+    persisted = true;
   }
 
   // Best-effort: refresh the committed fallback so localhost always has the
-  // latest even without Supabase. Silently skipped on read-only hosts (Vercel).
+  // latest even without Supabase. Skipped on read-only hosts (Vercel), where
+  // Supabase above is the source of truth. The Budget is derived, not scraped,
+  // so it has no committed snapshot file to refresh.
   if (snap.moduleKey !== MODULE_KEYS.unionBudget) {
     try {
       const file = path.join(
@@ -73,8 +97,17 @@ export async function saveSnapshot(snap: NormalizedSnapshot): Promise<void> {
         `${snap.moduleKey}.json`,
       );
       await fs.writeFile(file, JSON.stringify(snap, null, 2) + "\n", "utf8");
+      persisted = true;
     } catch {
-      // read-only filesystem — fine, Supabase is the source of truth there.
+      // read-only filesystem — fine as long as Supabase persisted above.
+    }
+
+    if (!persisted) {
+      throw new Error(
+        `Nothing persisted for ${snap.moduleKey}: Supabase is not configured ` +
+          `and the local filesystem is read-only. Set SUPABASE_SERVICE_ROLE_KEY ` +
+          `so refreshes are actually saved.`,
+      );
     }
   }
 }
