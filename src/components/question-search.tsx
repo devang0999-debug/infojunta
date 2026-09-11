@@ -6,6 +6,7 @@ import {
   searchQuestions,
   EXAMPLE_QUESTIONS,
   CATEGORY_META,
+  QUESTIONS,
   type CivicQuestion,
 } from "@/lib/questions";
 import { track } from "@/lib/mixpanel";
@@ -13,13 +14,22 @@ import { track } from "@/lib/mixpanel";
 /**
  * The hero: a search bank over the central question repository. Type a plain
  * question, get a plain answer + a link to the live breakdown.
+ *
+ * `questions` is the answer pool, resolved against live snapshots by the server
+ * page. It falls back to the raw bank so the component still works standalone.
  */
-export function QuestionSearch({ autoFocus = false }: { autoFocus?: boolean }) {
+export function QuestionSearch({
+  autoFocus = false,
+  questions = QUESTIONS,
+}: {
+  autoFocus?: boolean;
+  questions?: CivicQuestion[];
+}) {
   const [query, setQuery] = useState("");
 
   const results = useMemo<CivicQuestion[]>(
-    () => (query.trim().length >= 2 ? searchQuestions(query) : []),
-    [query],
+    () => (query.trim().length >= 2 ? searchQuestions(query, questions) : []),
+    [query, questions],
   );
 
   function runExample(q: string) {

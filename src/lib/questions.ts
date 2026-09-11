@@ -37,7 +37,11 @@ export const CATEGORY_META: Record<
  * Tiny, dependency-free scored search over the central question bank. Matches
  * on the question text and tags; ranks exact/prefix hits above loose ones.
  */
-export function searchQuestions(query: string, limit = 8): CivicQuestion[] {
+export function searchQuestions(
+  query: string,
+  pool: CivicQuestion[] = QUESTIONS,
+  limit = 8,
+): CivicQuestion[] {
   const terms = query
     .toLowerCase()
     .split(/\s+/)
@@ -45,7 +49,7 @@ export function searchQuestions(query: string, limit = 8): CivicQuestion[] {
     .filter(Boolean);
   if (terms.length === 0) return [];
 
-  const scored = QUESTIONS.map((item) => {
+  const scored = pool.map((item) => {
     const haystack = (item.q + " " + item.tags.join(" ")).toLowerCase();
     let score = 0;
     for (const term of terms) {

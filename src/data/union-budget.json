@@ -2,6 +2,7 @@
   "fiscalYear": "2026-27",
   "label": "Union Budget 2026-27 (Budget Estimates)",
   "presentedOn": "2026-02-01",
+  "capturedOn": "2026-02-01",
   "totalExpenditureCr": 5347315,
   "totalReceiptsCr": 5347315,
   "capexCr": 1221821,
@@ -39,7 +40,7 @@
   ],
   "ministries": [
     { "name": "Finance", "crore": 1972000, "colorKey": "flat", "note": "Mostly interest on debt, transfers to states and pensions — not day-to-day departmental spend." },
-    { "name": "Defence", "crore": 784678, "colorKey": "pop-pink", "note": "Highest of any ministry — about 15% of total spending; up over 15% on last year." },
+    { "name": "Defence", "crore": 784678, "colorKey": "pop-pink", "note": "Largest departmental ministry — about 15% of total spending; up over 15% on last year. (The Finance figure above is mostly interest and transfers, not departmental spend.)" },
     { "name": "Road Transport & Highways", "crore": 310000, "colorKey": "pop-blue" },
     { "name": "Railways", "crore": 293000, "colorKey": "pop-teal" },
     { "name": "Consumer Affairs, Food & Public Distribution", "crore": 239000, "colorKey": "pop-yellow" },

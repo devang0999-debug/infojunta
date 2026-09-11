@@ -5,6 +5,8 @@ import { MODULE_KEYS } from "@/lib/pipeline/schema";
 import { BreakdownCard } from "@/components/breakdown-card";
 import { QuestionSearch } from "@/components/question-search";
 import { StoryScroll, type StoryPanel } from "@/components/story-scroll";
+import { resolveQuestions } from "@/lib/answers";
+import { QUESTIONS } from "@/lib/questions";
 
 export const revalidate = 300;
 
@@ -29,6 +31,7 @@ export default async function Home() {
   const defenceLakhCr = defence ? defence.crore / 100000 : 0;
   const repo = rates?.metrics.find((m) => m.key === "repo")?.value ?? "—";
   const forexTotal = forex?.metrics.find((m) => m.key === "total")?.value ?? "—";
+  const questions = resolveQuestions(QUESTIONS, snapshots);
 
   const panels: StoryPanel[] = [
     {
@@ -64,7 +67,7 @@ export default async function Home() {
       figure: `₹${defenceLakhCr.toFixed(2)}`,
       unit: "lakh crore",
       title: "goes to Defence",
-      body: "The biggest-spending ministry — about 15% of the budget, up over 15% on last year.",
+      body: "The largest departmental ministry — about 15% of the budget, up over 15% on last year.",
       colorKey: "pop-pink",
       source: `Ministry allocations, ${budget.fiscalYear} (BE)`,
     },
@@ -110,7 +113,7 @@ export default async function Home() {
           reserves — in plain numbers. <span className="font-bold text-ink">No login. No paywall. Every figure sourced.</span>
         </p>
         <div className="mt-7 max-w-2xl">
-          <QuestionSearch />
+          <QuestionSearch questions={questions} />
         </div>
         <p className="mt-8 flex items-center gap-2 text-sm font-medium text-ink-soft">
           Scroll the story <span aria-hidden>↓</span>

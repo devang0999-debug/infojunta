@@ -29,6 +29,11 @@ export function buildBudgetSnapshot(): NormalizedSnapshot {
   const totalLakhCr = budget.totalExpenditureCr / LAKH_CR;
   const capexLakhCr = budget.capexCr / LAKH_CR;
 
+  // The Budget is an annual, verified dataset — its capture date is fixed to
+  // when we compiled it, NOT `new Date()`. Stamping "now" made February data
+  // claim it was "pulled today", which is exactly the freshness lie we forbid.
+  const capturedAt = new Date(budget.capturedOn).toISOString();
+
   return {
     moduleKey: MODULE_KEYS.unionBudget,
     title: `Union Budget ${budget.fiscalYear} — Where the money goes`,
@@ -38,7 +43,7 @@ export function buildBudgetSnapshot(): NormalizedSnapshot {
       `The biggest slices go to the states' share of taxes (${budget.goesTo[0].paise} paise of every rupee) and ` +
       `interest on past borrowing (${budget.goesTo[1].paise} paise). The fiscal deficit is targeted at ${budget.fiscalDeficitPctGdp}% of GDP.`,
     asOfDate: new Date(budget.presentedOn).toISOString(),
-    capturedAt: new Date().toISOString(),
+    capturedAt,
     metrics: [
       {
         key: "total_expenditure",
@@ -73,7 +78,7 @@ export function buildBudgetSnapshot(): NormalizedSnapshot {
     provenance: {
       sourceName: budget.source.name,
       sourceUrl: budget.source.url,
-      fetchedAt: new Date().toISOString(),
+      fetchedAt: capturedAt,
       note: budget.note,
     },
   };

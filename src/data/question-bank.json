@@ -10,7 +10,7 @@
       "category": "rates",
       "scope": "central",
       "tags": ["repo", "rbi", "interest", "emi", "monetary policy"],
-      "answer": "The RBI's policy repo rate is 5.25% (as at 2 Sep 2026). It's the rate at which the RBI lends to banks and sets the direction for your loan EMIs.",
+      "answer": "The RBI's policy repo rate is {{repo}}% (as at {{ratesAsOf}}). It's the rate at which the RBI lends to banks and sets the direction for your loan EMIs.",
       "link": { "href": "/rates", "label": "See all policy rates" },
       "source": { "name": "RBI", "url": "https://www.rbi.org.in/" }
     },
@@ -29,7 +29,7 @@
       "category": "rates",
       "scope": "central",
       "tags": ["crr", "slr", "reserve ratio", "banks"],
-      "answer": "CRR (3%) is the share of deposits banks must park as cash with the RBI; SLR (18%) is the share they must hold in safe assets like government bonds.",
+      "answer": "CRR ({{crr}}%) is the share of deposits banks must park as cash with the RBI; SLR ({{slr}}%) is the share they must hold in safe assets like government bonds.",
       "link": { "href": "/rates", "label": "Reserve ratios" }
     },
     {
@@ -38,7 +38,7 @@
       "category": "reserves",
       "scope": "central",
       "tags": ["forex", "reserves", "dollars", "rbi", "rupee"],
-      "answer": "India's foreign exchange reserves are about ₹69.8 lakh crore (week ended 21 Aug 2026), most of it in foreign currency assets, plus gold, SDRs and the IMF position.",
+      "answer": "India's foreign exchange reserves are about ₹{{forexTotal}} lakh crore (week ended {{forexAsOf}}), most of it in foreign currency assets, plus gold, SDRs and the IMF position.",
       "link": { "href": "/reserves", "label": "See the reserves breakdown" },
       "source": { "name": "RBI Weekly Statistical Supplement", "url": "https://www.rbi.org.in/" }
     },
@@ -48,7 +48,7 @@
       "category": "reserves",
       "scope": "central",
       "tags": ["gold", "reserves", "forex"],
-      "answer": "Gold makes up roughly ₹10.9 lakh crore of India's reserves — about 16% of the total.",
+      "answer": "Gold makes up roughly ₹{{forexGold}} lakh crore of India's reserves — about {{forexGoldShare}}% of the total.",
       "link": { "href": "/reserves", "label": "Reserve composition" }
     },
     {
@@ -66,7 +66,7 @@
       "category": "budget",
       "scope": "central",
       "tags": ["budget", "expenditure", "spending", "union budget"],
-      "answer": "The Union Budget 2026-27 plans total expenditure of about ₹53.5 lakh crore.",
+      "answer": "The Union Budget 2026-27 plans total expenditure of about ₹{{budgetTotal}} lakh crore.",
       "link": { "href": "/budget", "label": "Where the money goes" },
       "source": { "name": "Budget at a Glance 2026-27", "url": "https://www.indiabudget.gov.in/" }
     },
@@ -76,7 +76,7 @@
       "category": "budget",
       "scope": "central",
       "tags": ["tax", "rupee", "expenditure", "defence", "interest", "subsidies"],
-      "answer": "Of every rupee the government spends, 22 paise goes to states' share of taxes, 20 paise to interest on past debt, and the rest to schemes, defence, subsidies and pensions.",
+      "answer": "Of every rupee the government spends, {{statesPaise}} paise goes to states' share of taxes, {{interestPaise}} paise to interest on past debt, and the rest to schemes, defence, subsidies and pensions.",
       "link": { "href": "/budget", "label": "The rupee, sliced up" }
     },
     {
@@ -85,7 +85,7 @@
       "category": "budget",
       "scope": "central",
       "tags": ["interest", "debt", "borrowing", "budget"],
-      "answer": "Interest payments take 20 paise of every rupee the central government spends — the second-largest single item.",
+      "answer": "Interest payments take {{interestPaise}} paise of every rupee the central government spends — the second-largest single item.",
       "link": { "href": "/budget", "label": "Interest & borrowing" }
     },
     {
@@ -94,7 +94,7 @@
       "category": "budget",
       "scope": "central",
       "tags": ["defence", "military", "budget"],
-      "answer": "Defence accounts for about 11 paise of every rupee of central spending in 2026-27 — around ₹7.85 lakh crore, the largest of any ministry.",
+      "answer": "Defence accounts for about {{defencePaise}} paise of every rupee of central spending in 2026-27 — around ₹{{defenceLakhCr}} lakh crore, the largest departmental ministry.",
       "link": { "href": "/budget", "label": "Defence share" }
     },
     {
@@ -103,7 +103,7 @@
       "category": "budget",
       "scope": "central",
       "tags": ["fiscal deficit", "gdp", "borrowing"],
-      "answer": "The fiscal deficit for 2026-27 is targeted at 4.3% of GDP — the gap between what the government spends and earns.",
+      "answer": "The fiscal deficit for 2026-27 is targeted at {{fiscalDeficit}}% of GDP — the gap between what the government spends and earns.",
       "link": { "href": "/budget", "label": "Deficit & receipts" }
     },
     {
@@ -112,7 +112,7 @@
       "category": "rates",
       "scope": "central",
       "tags": ["usd", "inr", "rupee", "dollar", "exchange rate"],
-      "answer": "The FBIL reference rate is about ₹94.97 per US dollar (2 Sep 2026).",
+      "answer": "The FBIL reference rate is about ₹{{inrUsd}} per US dollar (as at {{ratesAsOf}}).",
       "link": { "href": "/rates", "label": "Exchange rate" }
     },
     {

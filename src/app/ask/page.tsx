@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { QuestionSearch } from "@/components/question-search";
+import { getAllSnapshots } from "@/lib/pipeline/store";
+import { resolveQuestions } from "@/lib/answers";
 import {
   QUESTIONS,
   CATEGORY_META,
   type QuestionCategory,
 } from "@/lib/questions";
+
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: "Ask — infojunta",
@@ -25,7 +29,11 @@ export default async function AskPage({
     ? (category as QuestionCategory)
     : null;
 
-  const shown = active ? QUESTIONS.filter((q) => q.category === active) : QUESTIONS;
+  // Fill the {{token}} figures from live data so answers match the pages.
+  const snapshots = await getAllSnapshots();
+  const questions = resolveQuestions(QUESTIONS, snapshots);
+
+  const shown = active ? questions.filter((q) => q.category === active) : questions;
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-10">
@@ -41,7 +49,7 @@ export default async function AskPage({
       </p>
 
       <div className="mt-8">
-        <QuestionSearch autoFocus />
+        <QuestionSearch autoFocus questions={questions} />
       </div>
 
       {/* Category filters */}

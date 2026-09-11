@@ -7,6 +7,22 @@ export const dynamic = "force-dynamic";
 // The forex scrape fetches a large WSS page; give it headroom (Hobby allows 60s).
 export const maxDuration = 60;
 
+/**
+ * This endpoint hits RBI's servers, so it is NOT public. Vercel Cron sends
+ * `Authorization: Bearer $CRON_SECRET` automatically when the env var is set;
+ * we require it. Fails closed — if CRON_SECRET is unset, nobody gets in.
+ */
+function isAuthorized(req: Request): boolean {
+  const secret = process.env.CRON_SECRET;
+  if (!secret) return false;
+  return req.headers.get("authorization") === `Bearer ${secret}`;
+}
+
+const UNAUTHORIZED = NextResponse.json(
+  { ok: false, error: "Unauthorized — this endpoint requires CRON_SECRET." },
+  { status: 401 },
+);
+
 async function handle(moduleKey: string) {
   if (moduleKey === "all") {
     const results = await Promise.all(
@@ -32,18 +48,20 @@ async function handle(moduleKey: string) {
 }
 
 export async function POST(
-  _req: Request,
+  req: Request,
   ctx: { params: Promise<{ module: string }> },
 ) {
+  if (!isAuthorized(req)) return UNAUTHORIZED;
   const { module } = await ctx.params;
   return handle(module);
 }
 
-// GET allowed too, so you can trigger a refresh straight from the browser.
+// GET is what Vercel Cron calls; same auth as POST — never open to the browser.
 export async function GET(
-  _req: Request,
+  req: Request,
   ctx: { params: Promise<{ module: string }> },
 ) {
+  if (!isAuthorized(req)) return UNAUTHORIZED;
   const { module } = await ctx.params;
   return handle(module);
 }
